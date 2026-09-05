@@ -489,9 +489,17 @@ function ask(){
    .then(function(){busy=false});
 }
 
-/* ── voice-over: browser speech synthesis, no key, works offline ─────────── */
+/* ── voice-over: ElevenLabs via server (real human voice), cached as mp3 ────
+   The API key stays on the server. The page only ever receives an mp3 URL.
+   Browser speech synthesis is kept purely as a last-resort fallback. */
 var SS=(typeof speechSynthesis!=='undefined')?speechSynthesis:((typeof window!=='undefined'&&window.speechSynthesis)?window.speechSynthesis:null);
 var voiceOn=(localStorage.getItem('pmk_voice')!=='0'), pickedVoice=null;
+var audioEl=null, ttsCache={}, ttsBusy=false;
+
+function ensureAudio(){
+  if(!audioEl){ audioEl=new Audio(); audioEl.preload='auto'; audioEl.crossOrigin='anonymous'; }
+  return audioEl;
+}
 function loadVoices(){
   if(!SS)return;
   var vs=SS.getVoices()||[];
@@ -501,25 +509,55 @@ function loadVoices(){
   if(!pickedVoice&&vs.length) pickedVoice=vs.filter(function(v){return v.lang.indexOf('en')===0})[0]||vs[0];
 }
 if(SS){loadVoices();SS.onvoiceschanged=loadVoices}
-function say(t){
-  if(!voiceOn||!SS||!t)return;
+
+function robotFallback(t){
+  if(!SS||typeof SpeechSynthesisUtterance==='undefined')return;
   SS.cancel();
-  // split into sentences so it starts fast and can be interrupted
   var parts=t.replace(/\s+/g,' ').match(/[^.!?]+[.!?]?/g)||[t];
   parts.forEach(function(p){
     if(!p.trim())return;
-    if(typeof SpeechSynthesisUtterance==='undefined')return;
     var u=new SpeechSynthesisUtterance(p.trim());
     if(pickedVoice)u.voice=pickedVoice;
     u.rate=.95;u.pitch=.85;u.volume=1;
     SS.speak(u);
   });
 }
-function stopSay(){if(SS)SS.cancel()}
+
+function playUrl(url){
+  var a=ensureAudio();
+  try{ a.pause() }catch(e){}
+  a.src=url; a.currentTime=0;
+  var p=a.play();
+  if(p&&p.catch) p.catch(function(){ /* autoplay blocked until a tap; silent */ });
+}
+
+function say(t){
+  if(!voiceOn||!t)return;
+  t=String(t).replace(/\s+/g,' ').trim().slice(0,900);
+  if(!t)return;
+  if(ttsCache[t]){ playUrl(ttsCache[t]); return; }
+  if(ttsBusy){ return; }
+  ttsBusy=true;
+  fetch(SB+'/rest/v1/rpc/tts_url',{method:'POST',
+    headers:{'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':'application/json'},
+    body:JSON.stringify({p_text:t})})
+   .then(function(r){ if(!r.ok)throw new Error('HTTP '+r.status); return r.json() })
+   .then(function(d){
+     var u=Array.isArray(d)?(d[0]&&(d[0].url||d[0].tts_url)):(d&&d.url);
+     if(u){ ttsCache[t]=u; playUrl(u); }
+     else robotFallback(t);
+   })
+   .catch(function(){ robotFallback(t) })
+   .then(function(){ ttsBusy=false });
+}
+
+function stopSay(){ if(SS)SS.cancel(); if(audioEl){ try{audioEl.pause()}catch(e){} } }
+
 function toggleVoice(){
   voiceOn=!voiceOn;localStorage.setItem('pmk_voice',voiceOn?'1':'0');
   document.getElementById('vbtn').textContent=voiceOn?'🔊 VOICE ON':'🔇 VOICE OFF';
-  if(!voiceOn)stopSay(); else say('Voice enabled. Tahuti Prime will read the teachings aloud.');
+  if(!voiceOn)stopSay();
+  else say('Welcome to Paa Mun Khab. I am Tahuti Prime. Walk the worlds, ask what you need to know, and take the knowledge with you.');
 }
 
 /* ── loop ────────────────────────────────────────────────────────────────── */
