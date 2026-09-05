@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HMP — Gallery</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#050810;color:#ECE7DA;font-family:Georgia,serif;padding:14px;max-width:680px;margin:0 auto}
+h1{color:#E4C173;font-size:21px;margin-bottom:4px}
+.sub{color:#4B6A8A;font-size:13px;margin-bottom:20px;line-height:1.6}
+h2{font-size:12px;color:#4B6A8A;letter-spacing:.16em;margin:26px 0 10px;font-family:-apple-system,sans-serif}
+.card{background:rgba(10,18,36,.85);border:1px solid rgba(201,162,75,.2);border-radius:12px;
+ overflow:hidden;margin-bottom:16px}
+.card img,.card video{width:100%;display:block;background:#02040A}
+.cap{padding:11px 13px}
+.ct{color:#E4C173;font-size:15px;font-weight:700}
+.cd{color:#8FA3B8;font-size:12.5px;margin-top:4px;line-height:1.55}
+.dl{display:inline-block;margin-top:9px;color:#29A99E;font-size:12px;text-decoration:none;
+ border:1px solid rgba(41,169,158,.35);border-radius:6px;padding:7px 12px}
+.err{background:rgba(224,108,108,.12);border:1px solid rgba(224,108,108,.4);color:#E06C6C;
+ padding:10px;border-radius:8px;font-size:12px;margin-bottom:12px;display:none}
+.foot{text-align:center;color:rgba(75,106,138,.7);font-size:11px;padding:26px 0;line-height:1.9}
+</style></head><body>
+<h1>☥ HMP Gallery</h1>
+<div class="sub">Every image and video produced for Paa Mun Khab. If something below is blank, the file itself is the problem — not the link.</div>
+<div class="err" id="err"></div>
+
+<h2>PROMO VIDEO</h2>
+<div class="card">
+  <video controls playsinline preload="metadata" poster="art/tier3.png" src="video/hmp-promo.mp4"></video>
+  <div class="cap"><div class="ct">The Legacy Blueprint — 20s</div>
+  <div class="cd">Vertical 9:16 for Reels, TikTok and Shorts. Five cards across the five worlds, closing on the HMP seal.</div>
+  <a class="dl" href="video/hmp-promo.mp4" download>↓ Download MP4 (2.7 MB)</a></div>
+</div>
+
+<h2>THE FIVE WORLDS</h2>
+<div id="grid"></div>
+
+<div class="foot">HANNIBAL MANSA PHALANX · THE LEGACY BLUEPRINT<br>267-633-5716</div>
+
+<script>
+var W=[
+ ['tier0','Mariana Trench','The deepest floor. Every fortune starts below sea level.'],
+ ['tier1','Global Megaliths','Structure outlives the builder.'],
+ ['tier2','Philadelphia Grid','Knowledge that never touches the street is decoration.'],
+ ['tier3','Solar Crown','Systems turn while you sleep.'],
+ ['tier4','Sovereign Apex','Land. Catalog. Equity. Your name.']
+];
+var g=document.getElementById('grid'), missing=[];
+W.forEach(function(w){
+  var d=document.createElement('div'); d.className='card';
+  d.innerHTML='<img loading="lazy" src="art/'+w[0]+'.png" alt="'+w[1]+'" onerror="this.dataset.bad=1">'+
+   '<div class="cap"><div class="ct">'+w[1]+'</div><div class="cd">'+w[2]+'</div>'+
+   '<a class="dl" href="art/'+w[0]+'.png" download>↓ Download PNG</a></div>';
+  g.appendChild(d);
+  var im=d.querySelector('img');
+  im.addEventListener('error',function(){ missing.push(w[1]);
+    document.getElementById('err').style.display='block';
+    document.getElementById('err').textContent='Failed to load: '+missing.join(', '); });
+});
+</script></body></html>
