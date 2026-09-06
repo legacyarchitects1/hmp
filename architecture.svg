@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" font-family="Inter,-apple-system,sans-serif">
+<rect width="1000" height="640" fill="#05070D"/>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0,0 L10,5 L0,10 z" fill="#C9A24B"/></marker>
+  <marker id="t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0,0 L10,5 L0,10 z" fill="#29A99E"/></marker>
+</defs>
+<text x="34" y="44" fill="#E4C173" font-size="19" font-weight="700" letter-spacing="2.5">HANNIBAL MANSA PHALANX — SYSTEM ARCHITECTURE</text>
+<text x="34" y="66" fill="#5A7086" font-size="11.5" letter-spacing="1.4">VERIFIED LIVE · 14/14 CHECKS PASSING</text>
+<line x1="34" y1="80" x2="966" y2="80" stroke="#C9A24B" stroke-opacity=".28"/>
+
+<!-- SURFACES -->
+<text x="34" y="112" fill="#5A7086" font-size="10.5" letter-spacing="1.8">SURFACES — WHAT A VISITOR TOUCHES</text>
+<g>
+  <rect x="34" y="124" width="212" height="70" rx="9" fill="#0B1220" stroke="#C9A24B" stroke-opacity=".45"/>
+  <text x="48" y="150" fill="#ECE7DA" font-size="13.5" font-weight="600">GitHub Pages</text>
+  <text x="48" y="169" fill="#5A7086" font-size="10.5">hub · game · delivery · gallery</text>
+  <text x="48" y="184" fill="#29A99E" font-size="10">text/html verified</text>
+
+  <rect x="266" y="124" width="212" height="70" rx="9" fill="#0B1220" stroke="#C9A24B" stroke-opacity=".45"/>
+  <text x="280" y="150" fill="#ECE7DA" font-size="13.5" font-weight="600">Paa Mun Khab 3D</text>
+  <text x="280" y="169" fill="#5A7086" font-size="10.5">Three.js · 5 worlds · multiplayer</text>
+  <text x="280" y="184" fill="#29A99E" font-size="10">lazy sky domes</text>
+
+  <rect x="498" y="124" width="212" height="70" rx="9" fill="#0B1220" stroke="#C9A24B" stroke-opacity=".45"/>
+  <text x="512" y="150" fill="#ECE7DA" font-size="13.5" font-weight="600">Mecca OS</text>
+  <text x="512" y="169" fill="#5A7086" font-size="10.5">Floot · 20 pages · 19 endpoints</text>
+  <text x="512" y="184" fill="#29A99E" font-size="10">typecheck clean</text>
+
+  <rect x="730" y="124" width="236" height="70" rx="9" fill="#0B1220" stroke="#C9A24B" stroke-opacity=".45"/>
+  <text x="744" y="150" fill="#ECE7DA" font-size="13.5" font-weight="600">Shopify + Printful</text>
+  <text x="744" y="169" fill="#5A7086" font-size="10.5">14 digital · 12 apparel</text>
+  <text x="744" y="184" fill="#D08A3E" font-size="10">Printful sync incomplete</text>
+</g>
+
+<!-- CONTROL PLANE -->
+<text x="34" y="240" fill="#5A7086" font-size="10.5" letter-spacing="1.8">CONTROL PLANE — SUPABASE</text>
+<rect x="34" y="252" width="932" height="150" rx="9" fill="#080D18" stroke="#29A99E" stroke-opacity=".35"/>
+<g font-size="11">
+  <rect x="52" y="270" width="168" height="52" rx="7" fill="#0D1626" stroke="#29A99E" stroke-opacity=".4"/>
+  <text x="64" y="290" fill="#ECE7DA" font-size="12" font-weight="600">PostgREST RPC</text>
+  <text x="64" y="308" fill="#5A7086" font-size="10">oracle_ask · tts_url</text>
+
+  <rect x="236" y="270" width="168" height="52" rx="7" fill="#0D1626" stroke="#29A99E" stroke-opacity=".4"/>
+  <text x="248" y="290" fill="#ECE7DA" font-size="12" font-weight="600">Rate limiter</text>
+  <text x="248" y="308" fill="#5A7086" font-size="10">60 oracle · 120 tts / hr</text>
+
+  <rect x="420" y="270" width="168" height="52" rx="7" fill="#0D1626" stroke="#29A99E" stroke-opacity=".4"/>
+  <text x="432" y="290" fill="#ECE7DA" font-size="12" font-weight="600">Edge functions</text>
+  <text x="432" y="308" fill="#5A7086" font-size="10">tts · verify · publish · art</text>
+
+  <rect x="604" y="270" width="168" height="52" rx="7" fill="#0D1626" stroke="#29A99E" stroke-opacity=".4"/>
+  <text x="616" y="290" fill="#ECE7DA" font-size="12" font-weight="600">Storage</text>
+  <text x="616" y="308" fill="#5A7086" font-size="10">private ebooks · art · tts</text>
+
+  <rect x="788" y="270" width="162" height="52" rx="7" fill="#0D1626" stroke="#29A99E" stroke-opacity=".4"/>
+  <text x="800" y="290" fill="#ECE7DA" font-size="12" font-weight="600">Postgres</text>
+  <text x="800" y="308" fill="#5A7086" font-size="10">catalog · player · ledger</text>
+
+  <rect x="52" y="336" width="898" height="50" rx="7" fill="#0A1420" stroke="#C9A24B" stroke-opacity=".3"/>
+  <text x="66" y="356" fill="#E4C173" font-size="12" font-weight="600">hmp-verify — deployment verification harness</text>
+  <text x="66" y="374" fill="#5A7086" font-size="10">asserts status · content-type · byte floor · required markers on every surface before a customer finds the break</text>
+</g>
+
+<!-- PROVIDERS -->
+<text x="34" y="440" fill="#5A7086" font-size="10.5" letter-spacing="1.8">PROVIDERS — KEYS NEVER REACH THE BROWSER</text>
+<g>
+  <rect x="34" y="452" width="176" height="58" rx="8" fill="#0B1220" stroke="#2E8B57" stroke-opacity=".5"/>
+  <text x="48" y="474" fill="#ECE7DA" font-size="12.5" font-weight="600">DeepSeek</text>
+  <text x="48" y="492" fill="#4FBF7F" font-size="10">oracle · live</text>
+
+  <rect x="228" y="452" width="176" height="58" rx="8" fill="#0B1220" stroke="#2E8B57" stroke-opacity=".5"/>
+  <text x="242" y="474" fill="#ECE7DA" font-size="12.5" font-weight="600">ElevenLabs</text>
+  <text x="242" y="492" fill="#4FBF7F" font-size="10">voice · cached mp3</text>
+
+  <rect x="422" y="452" width="176" height="58" rx="8" fill="#0B1220" stroke="#2E8B57" stroke-opacity=".5"/>
+  <text x="436" y="474" fill="#ECE7DA" font-size="12.5" font-weight="600">Shotstack</text>
+  <text x="436" y="492" fill="#4FBF7F" font-size="10">art + video · live</text>
+
+  <rect x="616" y="452" width="176" height="58" rx="8" fill="#0B1220" stroke="#8B3A3A" stroke-opacity=".5"/>
+  <text x="630" y="474" fill="#ECE7DA" font-size="12.5" font-weight="600">FAL.ai</text>
+  <text x="630" y="492" fill="#E06C6C" font-size="10">403 locked — top-up</text>
+
+  <rect x="810" y="452" width="156" height="58" rx="8" fill="#0B1220" stroke="#8B3A3A" stroke-opacity=".5"/>
+  <text x="824" y="474" fill="#ECE7DA" font-size="12.5" font-weight="600">OpenRouter</text>
+  <text x="824" y="492" fill="#E06C6C" font-size="10">no credits</text>
+</g>
+
+<!-- flows -->
+<path d="M140 194 L140 252" stroke="#C9A24B" stroke-width="1.5" marker-end="url(#a)" fill="none"/>
+<path d="M372 194 L372 252" stroke="#C9A24B" stroke-width="1.5" marker-end="url(#a)" fill="none"/>
+<path d="M604 194 L604 252" stroke="#C9A24B" stroke-width="1.5" marker-end="url(#a)" fill="none"/>
+<path d="M136 322 L122 452" stroke="#29A99E" stroke-width="1.3" marker-end="url(#t)" fill="none" stroke-dasharray="4 3"/>
+<path d="M320 322 L316 452" stroke="#29A99E" stroke-width="1.3" marker-end="url(#t)" fill="none" stroke-dasharray="4 3"/>
+<path d="M504 322 L510 452" stroke="#29A99E" stroke-width="1.3" marker-end="url(#t)" fill="none" stroke-dasharray="4 3"/>
+
+<line x1="34" y1="556" x2="966" y2="556" stroke="#C9A24B" stroke-opacity=".2"/>
+<text x="34" y="580" fill="#5A7086" font-size="10.5">GOVERNING RULE — fail closed on a missing secret · parameterised SQL only · compliance enforced server-side in the oracle prompt</text>
+<text x="34" y="600" fill="#5A7086" font-size="10.5">VERIFY BEFORE CLAIM — no deploy is reported working until hmp-verify returns green</text>
+<text x="34" y="624" fill="#C9A24B" font-size="10" letter-spacing="1.6">HANNIBAL MANSA PHALANX · THE LEGACY BLUEPRINT · 267-633-5716</text>
+</svg>
