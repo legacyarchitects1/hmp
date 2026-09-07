@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 760" width="1060" height="760" font-family="Inter,-apple-system,sans-serif">
+<rect width="1060" height="760" fill="#05070D"/>
+<defs>
+ <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#C9A24B"/></marker>
+ <marker id="q" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#29A99E"/></marker>
+</defs>
+<text x="34" y="42" fill="#E4C173" font-size="18" font-weight="700" letter-spacing="2.4">PHALANX RISING LMS — SCHEMA, JOURNEY &amp; PROGRESS LOGIC</text>
+<text x="34" y="63" fill="#5A7086" font-size="11" letter-spacing="1.3">36 MONTHS · 4 PHASES · 12 QUARTERS · SEQUENTIAL GATING · SERVER-SIDE GRADING</text>
+<line x1="34" y1="76" x2="1026" y2="76" stroke="#C9A24B" stroke-opacity=".28"/>
+
+<text x="34" y="106" fill="#5A7086" font-size="10" letter-spacing="1.7">PHASE ARC — MONTH 1 TO 36</text>
+<g>
+ <rect x="34" y="118" width="238" height="60" rx="8" fill="#0B1220" stroke="#4A6A82" stroke-opacity=".6"/>
+ <text x="48" y="140" fill="#ECE7DA" font-size="13" font-weight="600">1 · Stabilization</text>
+ <text x="48" y="158" fill="#5A7086" font-size="10">Months 1–9 · ID, housing, health, routine</text>
+ <text x="48" y="172" fill="#4A6A82" font-size="9.5">Risk-Need-Responsivity</text>
+
+ <rect x="282" y="118" width="238" height="60" rx="8" fill="#0B1220" stroke="#29A99E" stroke-opacity=".6"/>
+ <text x="296" y="140" fill="#ECE7DA" font-size="13" font-weight="600">2 · Skill Rebuilding</text>
+ <text x="296" y="158" fill="#5A7086" font-size="10">Months 10–18 · literacy, numeracy, credit</text>
+ <text x="296" y="172" fill="#29A99E" font-size="9.5">spaced practice + immediate feedback</text>
+
+ <rect x="530" y="118" width="238" height="60" rx="8" fill="#0B1220" stroke="#C9A24B" stroke-opacity=".6"/>
+ <text x="544" y="140" fill="#ECE7DA" font-size="13" font-weight="600">3 · Vocational Reintegration</text>
+ <text x="544" y="158" fill="#5A7086" font-size="10">Months 19–27 · credentials, entity, income</text>
+ <text x="544" y="172" fill="#C9A24B" font-size="9.5">credential + mentorship pairing</text>
+
+ <rect x="778" y="118" width="248" height="60" rx="8" fill="#0B1220" stroke="#E4C173" stroke-opacity=".7"/>
+ <text x="792" y="140" fill="#ECE7DA" font-size="13" font-weight="600">4 · Advanced Mastery</text>
+ <text x="792" y="158" fill="#5A7086" font-size="10">Months 28–36 · assets, equity, mentoring</text>
+ <text x="792" y="172" fill="#E4C173" font-size="9.5">generativity → sustained desistance</text>
+</g>
+<path d="M272 148 L282 148" stroke="#C9A24B" stroke-width="1.6" marker-end="url(#g)"/>
+<path d="M520 148 L530 148" stroke="#C9A24B" stroke-width="1.6" marker-end="url(#g)"/>
+<path d="M768 148 L778 148" stroke="#C9A24B" stroke-width="1.6" marker-end="url(#g)"/>
+
+<text x="34" y="216" fill="#5A7086" font-size="10" letter-spacing="1.7">DATA SCHEMA</text>
+<g font-size="9.5">
+ <rect x="34" y="228" width="196" height="126" rx="8" fill="#080D18" stroke="#29A99E" stroke-opacity=".45"/>
+ <text x="46" y="248" fill="#29A99E" font-size="11.5" font-weight="700">lms_modules</text>
+ <text x="46" y="266" fill="#ECE7DA">month PK 1–36</text>
+ <text x="46" y="281" fill="#8FA3B8">phase_id → lms_phases</text>
+ <text x="46" y="296" fill="#8FA3B8">quarter (generated)</text>
+ <text x="46" y="311" fill="#8FA3B8">pillars[] objectives[]</text>
+ <text x="46" y="326" fill="#D08A3E">requires_month → self</text>
+ <text x="46" y="343" fill="#8FA3B8">content_status · asset_url</text>
+
+ <rect x="252" y="228" width="196" height="126" rx="8" fill="#080D18" stroke="#29A99E" stroke-opacity=".45"/>
+ <text x="264" y="248" fill="#29A99E" font-size="11.5" font-weight="700">lms_progress</text>
+ <text x="264" y="266" fill="#ECE7DA">learner_id + month PK</text>
+ <text x="264" y="281" fill="#8FA3B8">state: not_started /</text>
+ <text x="264" y="294" fill="#8FA3B8">in_progress / completed</text>
+ <text x="264" y="311" fill="#8FA3B8">best_score · attempts</text>
+ <text x="264" y="326" fill="#8FA3B8">minutes_spent</text>
+ <text x="264" y="343" fill="#8FA3B8">started_at · completed_at</text>
+
+ <rect x="470" y="228" width="196" height="126" rx="8" fill="#080D18" stroke="#8B3A3A" stroke-opacity=".55"/>
+ <text x="482" y="248" fill="#E06C6C" font-size="11.5" font-weight="700">lms_questions</text>
+ <text x="482" y="266" fill="#ECE7DA">month → lms_modules</text>
+ <text x="482" y="281" fill="#8FA3B8">kind: mcq / scenario</text>
+ <text x="482" y="296" fill="#8FA3B8">prompt · options[]</text>
+ <text x="482" y="313" fill="#E06C6C" font-weight="700">correct_index — never</text>
+ <text x="482" y="326" fill="#E06C6C" font-weight="700">exposed to the client</text>
+ <text x="482" y="343" fill="#8FA3B8">explanation · difficulty</text>
+
+ <rect x="688" y="228" width="160" height="126" rx="8" fill="#080D18" stroke="#29A99E" stroke-opacity=".45"/>
+ <text x="700" y="248" fill="#29A99E" font-size="11.5" font-weight="700">lms_puzzles</text>
+ <text x="700" y="266" fill="#8FA3B8">sequence · budget</text>
+ <text x="700" y="281" fill="#8FA3B8">pattern · matching</text>
+ <text x="700" y="296" fill="#8FA3B8">planning</text>
+ <text x="700" y="313" fill="#8FA3B8">payload jsonb</text>
+ <text x="700" y="328" fill="#E06C6C">solution jsonb (private)</text>
+ <text x="700" y="345" fill="#8FA3B8">skill</text>
+
+ <rect x="870" y="228" width="156" height="126" rx="8" fill="#080D18" stroke="#29A99E" stroke-opacity=".45"/>
+ <text x="882" y="248" fill="#29A99E" font-size="11.5" font-weight="700">lms_learners</text>
+ <text x="882" y="266" fill="#ECE7DA">id uuid PK</text>
+ <text x="882" y="281" fill="#8FA3B8">display_name</text>
+ <text x="882" y="296" fill="#8FA3B8">cohort</text>
+ <text x="882" y="313" fill="#D08A3E">role: learner /</text>
+ <text x="882" y="326" fill="#D08A3E">facilitator / admin</text>
+ <text x="882" y="343" fill="#8FA3B8">enrolled_at · active</text>
+</g>
+<path d="M230 290 L252 290" stroke="#29A99E" stroke-width="1.3" marker-end="url(#q)"/>
+<path d="M448 290 L470 290" stroke="#29A99E" stroke-width="1.3" marker-end="url(#q)"/>
+<path d="M666 290 L688 290" stroke="#29A99E" stroke-width="1.3" marker-end="url(#q)"/>
+<path d="M848 290 L870 290" stroke="#29A99E" stroke-width="1.3" marker-end="url(#q)"/>
+
+<text x="34" y="396" fill="#5A7086" font-size="10" letter-spacing="1.7">LEARNER JOURNEY — ONE MONTH</text>
+<g>
+ <rect x="34" y="408" width="140" height="52" rx="7" fill="#0B1220" stroke="#C9A24B" stroke-opacity=".4"/>
+ <text x="46" y="430" fill="#ECE7DA" font-size="11.5" font-weight="600">lms_enrol()</text>
+ <text x="46" y="448" fill="#5A7086" font-size="9.5">creates learner + M1</text>
+
+ <rect x="196" y="408" width="140" height="52" rx="7" fill="#0B1220" stroke="#C9A24B" stroke-opacity=".4"/>
+ <text x="208" y="430" fill="#ECE7DA" font-size="11.5" font-weight="600">lms_next_month()</text>
+ <text x="208" y="448" fill="#5A7086" font-size="9.5">gate check</text>
+
+ <rect x="358" y="408" width="140" height="52" rx="7" fill="#0B1220" stroke="#C9A24B" stroke-opacity=".4"/>
+ <text x="370" y="430" fill="#ECE7DA" font-size="11.5" font-weight="600">module + puzzle</text>
+ <text x="370" y="448" fill="#5A7086" font-size="9.5">read · practise</text>
+
+ <rect x="520" y="408" width="140" height="52" rx="7" fill="#0B1220" stroke="#C9A24B" stroke-opacity=".4"/>
+ <text x="532" y="430" fill="#ECE7DA" font-size="11.5" font-weight="600">lms_get_quiz()</text>
+ <text x="532" y="448" fill="#5A7086" font-size="9.5">no answer key sent</text>
+
+ <rect x="682" y="408" width="152" height="52" rx="7" fill="#0B1220" stroke="#2E8B57" stroke-opacity=".55"/>
+ <text x="694" y="430" fill="#ECE7DA" font-size="11.5" font-weight="600">lms_submit_quiz()</text>
+ <text x="694" y="448" fill="#4FBF7F" font-size="9.5">graded in Postgres</text>
+
+ <rect x="856" y="408" width="170" height="52" rx="7" fill="#0B1220" stroke="#E4C173" stroke-opacity=".6"/>
+ <text x="868" y="430" fill="#ECE7DA" font-size="11.5" font-weight="600">≥80% → completed</text>
+ <text x="868" y="448" fill="#5A7086" font-size="9.5">next month unlocks</text>
+</g>
+<path d="M174 434 L196 434" stroke="#C9A24B" stroke-width="1.4" marker-end="url(#g)"/>
+<path d="M336 434 L358 434" stroke="#C9A24B" stroke-width="1.4" marker-end="url(#g)"/>
+<path d="M498 434 L520 434" stroke="#C9A24B" stroke-width="1.4" marker-end="url(#g)"/>
+<path d="M660 434 L682 434" stroke="#C9A24B" stroke-width="1.4" marker-end="url(#g)"/>
+<path d="M834 434 L856 434" stroke="#C9A24B" stroke-width="1.4" marker-end="url(#g)"/>
+<path d="M758 460 L758 486 L245 486 L245 460" stroke="#D08A3E" stroke-width="1.3" fill="none" stroke-dasharray="4 3" marker-end="url(#g)"/>
+<text x="470" y="502" fill="#D08A3E" font-size="9.5">below 80% → stays in_progress · retake · best_score retained</text>
+
+<text x="34" y="546" fill="#5A7086" font-size="10" letter-spacing="1.7">BUILD STATE</text>
+<rect x="34" y="558" width="992" height="72" rx="8" fill="#080D18" stroke="#C9A24B" stroke-opacity=".3"/>
+<g font-size="10.5">
+ <text x="50" y="582" fill="#4FBF7F">■ Months 1–3 drafted — objectives, 6 graded questions, 3 cognitive puzzles</text>
+ <text x="50" y="602" fill="#4FBF7F">■ Months 14–20 published — PDFs linked from hmp_catalog</text>
+ <text x="50" y="622" fill="#D08A3E">■ Months 4–13 and 21–36 — skeleton rows created, content pending</text>
+ <text x="560" y="582" fill="#8FA3B8">Engine verified end-to-end: enrol → fail → retake → pass → unlock</text>
+ <text x="560" y="602" fill="#8FA3B8">RLS on all 7 tables · catalogue public · keys and learners private</text>
+ <text x="560" y="622" fill="#8FA3B8">Gating is strictly sequential — requires_month self-reference</text>
+</g>
+
+<line x1="34" y1="666" x2="1026" y2="666" stroke="#C9A24B" stroke-opacity=".2"/>
+<text x="34" y="690" fill="#5A7086" font-size="10">LANGUAGE STANDARD — "returning citizen" throughout · 988 and 211 surfaced in Month 1 · no job, release or outcome is promised</text>
+<text x="34" y="710" fill="#5A7086" font-size="10">CREDIT STANDARD — the free right to self-dispute is taught in Month 3 and tested · no guaranteed deletion · no advance fees</text>
+<text x="34" y="736" fill="#C9A24B" font-size="9.5" letter-spacing="1.5">HANNIBAL MANSA PHALANX · THE LEGACY BLUEPRINT · 267-633-5716</text>
+</svg>
