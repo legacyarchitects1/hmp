@@ -1,0 +1,408 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hannibal Mansa Phalanx — Product Catalogue</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0A0E16;color:#ECE7DA;font-family:Georgia,'Times New Roman',serif;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 18px 60px}
+.hero{text-align:center;padding:34px 16px 26px;border-bottom:2px solid #C9A24B;margin-bottom:8px}
+.ankh{font-size:44px;color:#C9A24B}
+h1{font-size:29px;color:#E4C173;letter-spacing:.06em;margin:10px 0 6px}
+.tag{color:#8FA3B8;font-size:14.5px;max-width:600px;margin:0 auto}
+.contact{color:#C9A24B;font-size:13px;margin-top:12px;letter-spacing:.04em}
+h2{font-size:19px;color:#E4C173;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 4px;
+   border-left:4px solid #C9A24B;padding-left:12px}
+.sub{color:#5A7086;font-size:13px;margin:0 0 16px 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{background:#101827;border:1px solid rgba(201,162,75,.28);border-radius:12px;overflow:hidden;
+      break-inside:avoid;page-break-inside:avoid;display:flex;flex-direction:column}
+.ph{width:100%;aspect-ratio:1/1;object-fit:cover;background:#0A1220;display:block}
+.noimg{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#C9A24B;font-size:34px}
+.noimg span{font-size:11px;color:#4B6A8A;margin-top:6px;font-family:sans-serif}
+.body{padding:12px 13px 14px;text-align:center;flex:1;display:flex;flex-direction:column}
+.t{font-size:14px;font-weight:700;color:#ECE7DA;line-height:1.35;min-height:38px}
+.row{display:flex;justify-content:center;align-items:baseline;gap:10px;margin:8px 0 10px}
+.p{font-size:21px;font-weight:700;color:#E4C173;font-family:sans-serif}
+.pts{font-size:12px;color:#29A99E;font-family:monospace}
+.qr{width:104px;height:104px;background:#fff;padding:5px;border-radius:7px;margin:0 auto;display:block}
+.scan{font-size:10.5px;color:#5A7086;margin-top:6px;font-family:sans-serif;letter-spacing:.08em}
+.pay{background:#101827;border:2px solid #C9A24B;border-radius:14px;padding:24px;margin:36px 0 0;text-align:center}
+.pay h2{border:0;padding:0;margin:0 0 6px}
+.paygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:18px}
+.paybox{background:#0A1220;border:1px solid rgba(201,162,75,.3);border-radius:10px;padding:16px}
+.paybox .nm{color:#E4C173;font-size:15px;font-weight:700;margin-bottom:8px}
+.paybox .slot{width:120px;height:120px;margin:0 auto 8px;border:2px dashed rgba(201,162,75,.4);
+   border-radius:8px;display:flex;align-items:center;justify-content:center;color:#4B6A8A;font-size:11px;
+   text-align:center;padding:8px;font-family:sans-serif}
+.paybox .hint{font-size:11.5px;color:#8FA3B8;font-family:sans-serif}
+.mission{background:linear-gradient(160deg,#101827,#0A1220);border:2px solid #29A99E;border-radius:14px;
+   padding:26px;margin-top:34px}
+.mission h2{border-left-color:#29A99E;color:#29A99E}
+.bonus{text-align:center;background:rgba(201,162,75,.09);border:1px solid #C9A24B;border-radius:10px;
+   padding:20px;margin:18px 0}
+.bonus .amt{font-size:44px;color:#E4C173;font-weight:700;font-family:sans-serif;line-height:1}
+.bonus .lb{color:#8FA3B8;font-size:13px;margin-top:6px}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
+.rung{background:#0A1220;border:1px solid rgba(41,169,158,.3);border-radius:9px;padding:14px;text-align:center}
+.rung .r{color:#29A99E;font-size:13px;font-weight:700;letter-spacing:.06em}
+.rung .d{color:#8FA3B8;font-size:11.5px;margin-top:5px;font-family:sans-serif}
+.note{background:rgba(41,169,158,.06);border:1px solid rgba(41,169,158,.28);border-radius:10px;
+   padding:16px;margin-top:26px;font-size:12.5px;color:#8FA3B8;line-height:1.75;font-family:sans-serif}
+.foot{text-align:center;color:#5A7086;font-size:11.5px;padding:30px 0 8px;line-height:1.9;
+   border-top:1px solid rgba(201,162,75,.22);margin-top:34px}
+.foot b{color:#C9A24B;font-weight:400;letter-spacing:.1em}
+.printbtn{position:fixed;bottom:18px;right:18px;background:#C9A24B;color:#0A0E16;border:none;
+   border-radius:9px;padding:13px 20px;font-size:14px;font-weight:700;cursor:pointer;
+   font-family:sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.5);z-index:50}
+@media print{
+  body{background:#fff;color:#111}
+  .printbtn{display:none}
+  .card{background:#fff;border:1px solid #bbb}
+  .t{color:#111} .p{color:#7a5f18} .pts{color:#1a6b63}
+  h1,h2{color:#7a5f18} .tag,.sub,.scan,.hint,.d,.lb{color:#444}
+  .mission,.pay,.paybox,.rung,.bonus,.note{background:#fff}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .sec{page-break-inside:auto}
+}
+</style></head><body>
+<button class="printbtn" onclick="window.print()">⬇ Save as PDF</button>
+<div class="wrap">
+
+<div class="hero">
+  <div class="ankh">☥</div>
+  <h1>HANNIBAL MANSA PHALANX</h1>
+  <div class="tag">The Legacy Blueprint — credit, capital, real estate and re-entry, taught as a system. Scan any code below to buy directly.</div>
+  <div class="contact">Damon Taylor · Philadelphia, PA · 267-633-5716 · taylormadesalescorp@gmail.com</div>
+</div>
+
+<section class="sec ">
+<h2>Apparel</h2><div class="sub">Every piece scans straight to checkout. Sizes S–2XL where shown.</div>
+<div class="grid"><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/hmp_nylon_hero.jpg?v=1786230601" alt="Phalanx Nylon AOP Tracksuit Set" loading="lazy">
+  <div class="body">
+    <div class="t">Phalanx Nylon AOP Tracksuit Set</div>
+    <div class="row"><span class="p">$285.00</span><span class="pts">2,850 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACe0lEQVR4nO2YMc7cNhCFv1ktwO0oIwfgAjmHpfhOaQxoLf1WkTO5k/Yk3BOY6ihAq5dCAZLCBtL8XCDINBI4xQzePL6ZoYmf2Hr6mQf+qy40AU6pI+OHkBu6ABBy2TRmSW73o7T7DadUyUlb8TQSwc0JaDVGzdqCm+jKpnH+6+u3Xx+qE5dv1sfL+8T6F67ljBvT23X54m/Xd471Izu4MWsIbpbkpCGU58YJmRksG7DcrtyXjdXsXBoNSdKcKmFSdLPG46gwGvfF7NLQPdyzfmtRDWY2lEXjjGpCBFir7zV84fNV+lC8KLsfo5PG6JQ6pETIlFdRaSO3qZfmVMWXqehEF5xSh9v9KKCKbiqNxuFarCbk+3Kz3Pi1XXqNsXyHDW4HsNShOVXx6LVl0Wg1zhk63ORdBLojoeJo9HJKlbR7KUMVsVS4wx5V0Jy6QOOHkO24OFVpFW14Xi/4M9keG37iD/mJ5/UFQ6BmDWTTGHObgLa8bux+C0AVc3P89dFN9GWLgnYvSamPbk4EGr8F7X4szQ0AO0FYfvPbw31dztipNDdOwNP0DGZ+X8aIaYxYqkqr6Kwx0iYCUMlN9BErfWHRrO3vLSHQ0IXclp6+0Hyws1fGb2gHXtFTAJY2DFzsMcb1k0Y5lebGCby1F5bhkT+GW4vsZnZa1tIqKkmavOQmP5AbCJp8cW5MgJOk3GrDSVtwc+kOe8IkcV/OuK9Avi8DWaHwZH6GpQ4orKaP9e+6fKvB7Psv2ytee+xxDtx5XtdeA27yt/JiDqjusE8PRfdWdyE37xnrh3Zs9EoEJ41RSgTNL9ro715xbW0LZnUfLyq90dv/D5L/sD8BoGqza6rXWeQAAAAASUVORK5CYII=" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <div class="ph noimg">☥<span>image pending</span></div>
+  <div class="body">
+    <div class="t">Phalanx AOP Tracksuit Set</div>
+    <div class="row"><span class="p">$275.00</span><span class="pts">2,750 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACeklEQVR4nO2YMc7jNhCFv5EMUB11A6rLKSLtNnuiNAFkWLv2vX7x3xOkTBFAvgFVhQa0finkIkWczvyBIK+giilmQM6b90YmnuBWPYvAfzcUzayRHc0qoAEwM+uKloGiJBdTrYzfglM6yUlbyIXLSAQ3+4k8aENRW3AzY9kyHiG7bqGJLaD28uJc/4j9Nu6Ai5rIvf+I23j0htJINmmRtIXyvVEhM+Mdgp/X49C8rxM3s0PpR5Ekzf6snSRRD3zEo8zUC0Oq5WZ/XtydunQZd69Fd0acUi16aimm8mUw4mavxSmNO3EyUJopd0akVAvbj5Pc3RdniiVCE8PN3OyPXcZbd/v0olzPISXC3gwAufdTyL0/l+6N2U+4mdMubYqpXjJ+Kq8p9ZLxB5p+PQD+2NGvW2m/0a+3rrH0o9NZG3a089J8T6/J9RQH3oH1y2+/LPxsgOlrl7+09VbUBKI7tdyd0z65MgBW3vbc2cVVkrYgpRH68nMDCP6tvVxtaC80sa0X9209L8W96FnZEoEh1cpD+hhNmf0W6L0WLI1BUVPgA+aGXadrtnSB3p+XhlULUJd+lJndiwZgDHnYTWBh21Nhmlgrv10V5WKj9sI6tK/J9RyK2gBOi3sYICivKSimk7Klk/KQTnJKY9Bc3vZEacFS/TA7PYCVJmxFD0Fv7chacQEYg2ZfXGGjmTWDrMNSHTFNNPC17EZfYZJgPS+N7Db4b+uB/Kpc/xZarQN/Mxd1ALVc7VNpTTnsH1UjyOo/us/i+tOf1dj9XlxhAe+0fk6/Du6t/TFkU/Eddt/oNe0jXDHtTCk9N2bAxX1TGkM2bR9ge+z/H5J/w18AvLFUVQ/YqgAAAABJRU5ErkJggg==" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/hmp_luxury_hero.jpg?v=1786248691" alt="Legacy Blueprint Embroidered Hoodie" loading="lazy">
+  <div class="body">
+    <div class="t">Legacy Blueprint Embroidered Hoodie</div>
+    <div class="row"><span class="p">$245.00</span><span class="pts">2,450 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQAAAAAWyO/XAAADDklEQVR4nO2ZMY7kNhBFX7UaoDLK2MQZdQPfQOqj+BCbLNA93TOa3GfxCSz1nsMAdQJTkdmAWt9BLwwnO95kzMBbCYMK6oP1f+EXaeLr8bx7Iwn/v+xkZjXLZa7VPJv1dmptt5jZrhwqNEly0gVtfkUjldyUztKkS8GbXKxlairVLBfs4G9thrvV7133jdh/OZdbm6+6v+r60xDrvLx33W9CZenD77enX5tg/XiyvPujLKodeEUUbn0N5+iem9fgNyrloqhkZth8wb1wb7F5hSvPZoeSGpQkTbrgpJVsD0lKUjkNoimBU6pE5yU3UkUpgSuIagccyTyaZ+3tyd9as+YYbkWn6AjQUcUMZ7kNgpt0CSU7uAefAJi9YOZz+hBvtU8/v2/df8v26dnqK/c2T2Y9aj4ZfXqlvhbtoFfMvRSldI6SBrkRAlZSg5sf5EbOURvHkC0RcufL8mrHdbm1GX/q68+pmuj8EPk8K7533bdiT+f31H8ue+h9wmg+zj8qfKTOJXm1+UGaNMTcJ0LutZItQUl/tYdlxWwDNy7nS515xd1/WPdl72qSlE2XQK81SKmKbkpHclkNUkXwik7pCP0DpOSKOmTTrZcSLH3Yk1lObS2z9nYoO0UH0VEp91qDJg1yU6oKOxmlKkpawb5QKmTTEMvuOGo+tdY3hKywBtRUEx2EuiuqwXRWNq0BgNz5NdBBaQ16yY3+EjQ+hFhFjQ+alZyiMGfmXybrE2T41M+mu5XccdAGgT6dpc1LdA9jM8SSvv1vXg1yUzqGRy83oKS/2oG31m/LZb49eRfpZ8X6CsFtRXfnZYgZf+rdC3fjyr0Fqmk5lH3dOmIHqoiaSqippgz33r+U353T8R/zSpPWUHZejYBTOpI7v6KNSlg6Unijl+RGIMM5us1L2bQWRbV7vPWZ1uCkPdnmPf432wc7lGU7wDJEWE6t9WGdM36Y3FgclYKZWXNE02wt3XJq/5O6X896Rfp5kNsAO/hB9ZUjy6EkKpkZU3NvlyoRmGydlye/D34sh8q+/5h8c/YvxD8G92bVvF8AAAAASUVORK5CYII=" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/hmp_nylon_anorak.jpg?v=1786230601" alt="Phalanx Nylon AOP Anorak" loading="lazy">
+  <div class="body">
+    <div class="t">Phalanx Nylon AOP Anorak</div>
+    <div class="row"><span class="p">$175.00</span><span class="pts">1,750 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACg0lEQVR4nO2YP67jNhDGf7QEUB0N7AGoi6yUanOKFLlDSjtSoge8ZoEcIefYKpLfRegDBCE7GqD1pbARpMiW4QOCTEOALDgYznx/aMRX4nb42gn8V4/QCljFKQCT8sDJA/hcN41Nkt2dglZXsIqNrFTqpnGAZHouqQUTX0O+uFvPZuZ3eS+jc8/HI76TWcK/e9c/Rftc0+yBe58+uXNfP41nb6xMwe5OstLs36M3ZIzBxPvI2/Xcc0mFmzFt7WpIkrbYBO1MwW5aHluVq3FJxnQfj9C9qfXoCMbUnhQkFa+Vk2eMwOCK1+6WutVAisAYT2DiCSniM/VRdHdLyLji8xin8E4oilZO3m6SGJwENMGu9ashLcoDTbBbhDy44vOoyr1xgHQznYknbt9wwi5Xu7Ed7311TnlBvx3Brs4G4NmslTnlMpS2+8J9zKTibyPN951Jn+sz7GtIPzq7GeNNj9GtzwOvoTa1RbzdXfFSnGQ3LbKK9dVXhAyPDEIeIzDWx43dKTBGvHZXPDAFuzJVpzZeyDBt3SW1MLjzmAdXneh3Jz04BVewK3hwc31JPKOffIvd0xIwWgImNnUn5cCbWsx0nf2tkRmRKVdIc31JfO+1+eW7fkizT5+4j/lbV6pL4gh2UyHjCtqBXL030CMDGjFGyONDi9Z3bbz4bnDzNcvPHpmzMYdka4O5JGmlkd00kwfwWl1lZf6Xo+chSCUVb7d4qv0oRhIXpmB/djPdJc1k+coo2kI6euR/8Jn0Qd3Dp/zxoVT97XkS/eoKDwgfNWO32pPydPQmIki/hO7L8fdfA7y8i6PfmYI2zQ+7pOrVeE7K6orXTiNgUn2fYv7/kPxb/Alm9q0cWN/O/QAAAABJRU5ErkJggg==" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <div class="ph noimg">☥<span>image pending</span></div>
+  <div class="body">
+    <div class="t">Phalanx AOP Track Jacket</div>
+    <div class="row"><span class="p">$175.00</span><span class="pts">1,750 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACfElEQVR4nO2YMa7cNhCGv3lagHLFzQkowOd4kiv7Ulqs8taA75Qm4r5TpOOeIFRHAVr9KdYBXMRluECQaURgCg74f/MPRiZ+EuvLzzLw301FM2tZphvRJtbBTp2ZWVe1DBQlud0rFbySU27kpC2Uyg+1WMd1OeBivnfl6teOaNNT9DKdOl6PjVrZJf27d/1THB4fGQH4dSqf/amrX8Z3NqKUtHtJ0hSewYbMDJbT0L7fTl17XTZWs0NtNgZJRcElXo9NBO+SJKXKZVwXs7bn3pV32YCOYFa7U5C0oRkCQ4bS+y1o9xdVZQMpjzDkJmF5RDETClAX0QM6Ninol/Vj+QKY/dmkVtw/VhZlZgyYJHovuZkmubn2a6Coi0pPk1zMhNL7LZRBldl4oV/WroWR9RMj7nJzkXi8152wL1z5etMMuNm72MIIlsfaDbv7Dad8TlI+P+TB8ljbzN9vLi1DsG61YB2mtSs932q7KNwH/wbB6bbh3/gmP1OdDfx2KyxK7dW7WPrlZOsnv9VnQ4khE7T7KbiZc3Iz59pmvvuJMuTzw7QY9JyZMnuJ3m+h4Ddc1BTAT7VddGcMmh+nc3IxN8JquyjavcSgi4rpIrdzTlhu6ouyBe2MlOGHmaLaZURNOOmSCn5DO1Cqs/FIFdk6tMPNJUwXOdWfKTET3O4v6aFHDzyDDUnSTJNc1BRKD0Gzr87GDDhlKEMeg3bG4GL9CWuSuHJO7s1PN94zFIXK69J3NmZ/kZQbuRmewMbh78PdwJ+65UM+4n7za/dH/YbFMkG6bfjfwxZKz9enbPQ756QoJcVMUHzSRn/1NvBqU2h1PKdWtTd6+/+H5A/xFzdGsY+wMZFBAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/hmp_luxury_crew.jpg?v=1786230601" alt="Shield Row Embroidered Crewneck" loading="lazy">
+  <div class="body">
+    <div class="t">Shield Row Embroidered Crewneck</div>
+    <div class="row"><span class="p">$165.00</span><span class="pts">1,650 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAAChUlEQVR4nO2YQY7jNhBFX40E0DvqBvRFLDnHakAdqeMGcowcJabnItIBBqB2NKDWn4V6MYsYWZkNBPkbEqhFFYq/flXRxAPcvz2ywH/XFM3swPJ6tDOw38zsWDgMk8TNuynH5uPIjWpy0lo8UYsdYRlnH9OfcTl7OxJtLBtGvR9q6HJsftT6u/nx15N8/bupS8wHS+/h/vvTff0jFCW5zY8BGCan1AcnrSGXzYbMjO/ziovpo+MG3M3q0o/SScoKbspQTUA1SdJUOIwbcLD5bpxCDafmfT6odDbQ1V+UW6pJSpVo/UWKqVJRbqCNYXLSiFPq2SMASlPU0tsxR1vD8g2CnXk5+s0XV9Ebw3Qw1birH8n4kfv5Sb4eQxuVsqU+ZEuQO40ht/5Slht7pfjN1zP4FffWVJEbH6U7bJdeLN+WNRxa3gM2vx5pl8LcQBs9LiZwm5eAasJSX7ZS0JVKGQa5zV+m3Gkkt3yBblSiS0ALIbdUE1a+td383bKCpmxacTG9HDk1z/H1GNroA1BN2vy639yVofSjXCEoSlPuUqXcUn1JT5HWfeLJ+BV3hQB+LM0NeEcbbx1dqpQtDXGfPMoXrNv8yl4fpjU4SaXFHH+35QwBlnrmZDVL1zzJ10MoSp+yiV/RBuTi3EBRK9nSoGxpkFPqw66spbe2OhzUMHMKr8eshtl+Sy9lOyySJEVJe5l2qQ+K5SkazezQ8j5nS1UEP3KAty/Z6FnGAMu9838sNflZvh5DMbFvi27zF7mrH8FKi/mnSTaynJdxXoZZk/toCg+Bn9nYIGBpkNv8GiSV7yleE9Djrr4m2zxCbPriyyPgYqqmbImgqBVaX3j6sv8/JH/BT5dalc+NhDhrAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <div class="ph noimg">☥<span>image pending</span></div>
+  <div class="body">
+    <div class="t">Phalanx AOP Track Pants</div>
+    <div class="row"><span class="p">$110.00</span><span class="pts">1,100 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAAChUlEQVR4nO2YMY7kNhBFH5sNUBl7MQegAB/AJ1jJkfc8Dg1oVj2juYlPsU4s9lyEcwJTGRtQ62+gseHAG5oNGFuRoApYKNb/vz6N+EZcD9/KwP81hWbASVNyM0MoHUMACKVmGUeMoNGHX1o+exd9WR7WpnD7oXajFtNyWSYVk29tufhrSzTnu9yXyb+2/ulk1chM6b8969/i+NfHC+VTfjLlZ//Y3qUMLxqF9QiLROQJet1+q3wpMsZg3s7BP3Nrm8uycjXmWBuwkqSYB+il5KKm/VdVwKKYwW1YSdnKzX4SMNYuY2YIUrYJI6XS+TVo81PtMjY/JfArUh5QzIRCbRZFylD6PCbFbBMmWzlprV3GxignTdLmJTdjk5vrd2P2k4rJVvvhnV9D6VV/Nhhws1cCvwbFbFPBn+t248CrjqGwPPaaFxcbGMDkoTZ9bV5yG0NQ1BpKh02YPNRHilXp80DpIJReK6XPtvZsKI+JDpuKyaNc1CSnfAfeGJM2CPRadxqhr88bMRPcht153M2Myc31NSXmUVImuJj3ltxBUw58PEETTzZef2J4c8+8YA7c2sqAjdmmYnRGkpKL2QpzDxYdBRBKv0/JuOtb9X0DFLUGjM6Bd02pv31J2vGxeSVtwD00BW5mGXWE1zfTYnb6sukOdqnR6daWj+Ecrr15NOawrLV9SocVlx8f1HyBN4CQYsh3cfSbnxKdX9HGEFysrbAHjCQuy2Ov5+UMrxmKQmW7dITlFDD5RPO7XtR8OYExfz6sVV973qVt9lOig1BMBhdrK+zfqVvPax7wf4Q1lI6X2iMaJTlJqfRSUsy8r4N3cPSX5RiQOYdGpzE1qu3ozfcHyX/EV3pRwtR3bUwcAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/womens-crewneck_0005b2ce-414a-4786-9477-deb95991c9a9.png?v=1787153533" alt="Legacy Blueprint Women&#x27;s Crewneck" loading="lazy">
+  <div class="body">
+    <div class="t">Legacy Blueprint Women&#x27;s Crewneck</div>
+    <div class="row"><span class="p">$89.99</span><span class="pts">900 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQAAAAAWyO/XAAAC/0lEQVR4nO1Zva60NhA9syCZzkRp0nlfJJj7SCkjsRf2AynPlA5zX8Tu0sV0RgJOit3kS5NNmhsXyZRMMaM5x2d+EOKv7X554QT+e14nIhXrKWy2niAtJki7isglZ1ZCElhvFh9hE7j6EH5BT85ZK7nKFUDh0OAnJhsLD+CQ6rPj/r1XuEPd60PUvO5G3v+tuK+9rCdUNvZerBHhnD8rTY8FHbZWi1UuDGa7oGDKmhVFBBJuVn1Zd2BBBz3jLtLmywr8ajM6KHL/49uQr1YLplAtOKQSjn4VGQxYT58e96XRcTdJYuFTo3ejHHfDGYWH5KtVCdY/oLI47C8/tyVUA0AaHFc0eXk1PmnkIqBOPVKRu8lZqwuAH68VpQzV93Xh0wKEVUS5lLFWJfhNdN+1OGyijkHkRICcgNicCJ56N2rWZLKxM3Sx93SxMykrghJGt7a4i7ob5SqaEtJiCurMqu31hAqA2d5xXLe3MCA1evRbm1WvYuFTA5hkSSagM4qxoHL5EARPdEadevTKxd7/rhEdMvOKQ0gSD7va+rDVgrsAWvmcKnoB68lUy0qnZkxIDWA2K4PJOYuCMzqkRg9INnbgrHeoGQVzIljCxtpU8uu3XicoD6wj5R1AlVVFHQekRtM/hvdT70aRu8n8BvUOxdhTnXoHZz0gAQWTzTv1FVxbPSB9xAkV0Hs0eg+fHfelkbEnbOwMyT81w6xsvwD6dk0AIFbKAFcjAJig5qwzAzrgidsA2Fh4znrMyivw1PQ89eiTcKRifPbBnAiCLvZezQAgHEByN4ocss5XICMeROcJADYCCXrP3J0X9E4uq8j2xtEnV8OoeS1NlXnHIZ9SEHuvXOweJ5q8CM4AFEmi0Y8dzCsXO4Osb9CRVPOj2eyAxJ7KPSmfUUVXuaLBZCqJMOrUN0mUEmnJflX7CAMSMIXkahjgoaxZtwmYr/MLbOxJckfmjV7TA+uARCmDupsybCKKOTf6561v0WWoJBZ+e4uAcrzJZ8d9ZfL/H5N/7P0NE9UJgsfqcKcAAAAASUVORK5CYII=" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/download.jpg?v=1787499935" alt="Phalanx Snapback Hat" loading="lazy">
+  <div class="body">
+    <div class="t">Phalanx Snapback Hat</div>
+    <div class="row"><span class="p">$55.00</span><span class="pts">550 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACgUlEQVR4nO1YMY7kNhCsXgloZRSwD2gB944VcYnvU7M3Omtzv8UvsLj3EeoFJjMK4KgumDXg5JyZAxhm2gELrOrqLgrxk3M8/awC/HdLQUQG4DYNHIHDy+skIjI1hdFDCAzIv8Xjyd16Lfm5DgW3T01hgCHBNCQAnoxFWE03XKw8gC+OMHCEuT9kjf/uXf9UcgsK8G3KX93r1B4GGEhqSFdidiTJxZSsrUmhiAC4Tbrur9PwnisOkb41KZ5kAd5w+LELgNNIkrExjPcsMrzYAgh7KxwBEVlaa4OsVnzqCJ8uKLOrxtOtbKoNkFwjZkcWSV0kE6wAaO8bN891X3bMuE3DO7royNq8YRMMQBfL7Fbqhi7q1vo1wBNXFrhqGhKszK5a8WyujdMtpoELIOkCDamLBW5pro1ckf3YRd2cRgCXO6DGviHU6EICMOfDH358w4C8tPeNNRY4EnBk8emC4lPXXhskfLpGZbqYBq5UpuadEriSJ67UQMYiCYBvPWFBJkA3x6inq6YbrlE3XNuTUq3M6KgbYPB8zEw5XYUGrgRcBTe3GB7gG9/3NRZKBc+8Rsi+RkjqWu8btB6DpLf96NjbwPGyo7lv9EA+fP7yOzD4fEz5F/f6qXxxjSfsEyQBQxiBEkyD/pr7HWH81ja13X2jeK6ET3/ZSPPNHAxcoExdLLNbjCcASGruGyTJQEYGLigzYNwcW8PYAOiJj5WYJy6mITXOsB+pbbvPlAoNrMattX31QB4NAPaC/MzhRQCRP5/rI357hDKJWMXxmQt0c0fzhk2w+z7OdKWerhrJxqR8aON0izGw3lExPCjRf98rhhdZOXC8xoGtE738/yH5t/MDMKG9rU5tzjYAAAAASUVORK5CYII=" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/kids-hoodie_ae1de8cc-38e2-405e-b763-aff41e50901b.png?v=1787153567" alt="Phalanx HMP Kids Hoodie" loading="lazy">
+  <div class="body">
+    <div class="t">Phalanx HMP Kids Hoodie</div>
+    <div class="row"><span class="p">$54.99</span><span class="pts">550 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACfElEQVR4nO2YMc7jNhCFvzENUB0d5ADUSaStco8cIWUAOdau/jK32FMkTST9F6EPECzV0YDsl8JIkGaRKjQQZAqC0BR8GM2beTMmvmK3w9c88F91oRnwkhIwRDqGCBBLXRiLJP8IO3RhSn7JTl7a68I4wGYt6zbG8p7vbenCrWWx8SX/y/IbjU5OzWJT+nff+gdX6fPdtp/Cua0P4whBNIr7sek3iYWP0Ov+uXI0ZGbYdYz+E/e2Wbedm9mxNmElSXPYY+ml5BdNz0+1CZvB63k4aQ6TgEttGDPEYlLCpFS6sEc9wlQbxgOXIOxIeUDKxELtKnrA8r0t/XVKrECz4lKQ9top+ggSvaTnDVzyc/2eMocxFst/Pt49OVM9N5Qvyc9BqRB2/JJdKoSxdm4s0drCdu7DvPkEDGB5qF3MO5yaX+DqTXDrcd83tv38kiq6aEqlg1h67ZQ+u/q54RJwScXyEL00yStXZ4ryJRVwopdSsQz0tdUXWjRGOlwqXRgjcEl+rt9TlIcoZfBLJvKannJgxS3NcnJp+8Bw1ZTfsAP3tjJTluxUCCOSlLRoEla7ih7ogAbg9mE7xka2X2Ebq49LYaT0GmMxjX/1lBeoLyc/45J/BCU9gFf0FPjRtotuLe/Xc4s9y5dLtQcEoOlOP1D0ze+fb9+tnLEv1WXPU5nj5OcwxtJB1Byq58YM+EeYEl3Yo1ceol/yUF2LSmLdzr0+beOVFSiKlcelI2ynCEDzq97U6ARmX77dq2570JKJTxHYQSyWwS8v2G887WPfvOeB8FvcY+l4q82URZKXdkqv8RkcvSAaMjPWzQvZpEanS2pUe6K3/xeSf7M/AL5kwQC/c/tcAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/womens-premium-tee_53f9ec19-d78e-46ec-aef5-b1ac87f6258d.png?v=1787153503" alt="Phalanx HMP Women&#x27;s Premium Tee" loading="lazy">
+  <div class="body">
+    <div class="t">Phalanx HMP Women&#x27;s Premium Tee</div>
+    <div class="row"><span class="p">$44.99</span><span class="pts">450 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACcUlEQVR4nO2YQW6sSBBEX5qWqnfFDYqLuPG/02y+hH8zou81gC9S3KDYFRImZtH9pVmMl66WRpMrUC4ylGREZGLii9hevsrAfzc1mdkZbmxW3xZr6xtmZk1hGCYJ1Z/mtGxN/ljeGyftxRu1WgPrjlkYdL74ITJZ/5zv5Z2clh43rvt31/q30JQI7gBoJeU2EdxIF3JhGJLcCMEpweNJe1kYL8jMsNTBTBew1LGZnUrPRispX2Dhta6m9Zc/IUmxMIyZ23KewilgOsFUd8v29k21vg4dvg/5QgcXv6NJO1x84dlAB1WkTV3QlCrp8HuQEqVhjFQxmxRzqyGCH5RNUvFugFOqoht9T8bvOKkvTdj5XryHNhH8SBW3t7W8pwBmtjWo7pb1x/Le5vkba32ZusbcpirmeR0ir3UV/ehdWd1AI9eIaSdfAEyK7ijvKQeEDFeBl4AON5Um7AsfqYr+4LZgS79IiYBCX9zoJWXTjjvujaiU21QV1w3fB3dAuA8IENyk4QnyFfLFK2rSjnuWp4xU0R1+D27SEDXShfIqig4qSQmkBO7++gQx52djFiSm0AP+3aytq9LydfhBGT8IILjRK9KWN/pJe3BTquQkiQtXZUuFVfTEa/3HFPRyXTbzaclnf1qa1hdfiee15zz7Ezq4QZt+NkxW3Ohb7SHDZ3P+WPbAzC1o9H1pMR/5TdNJunPVjaXl63HRz3w259f607a3dSezDqUJ+7hhr8qmngwd4IuvxFMiuNHf7eRucuU380fqsg4xs54WPhKg+s/mCfuGk/qApYfv3+/aJ1z087ov+qvuYAbcSOFu2P8/JP8RfwPLp6rt8btlLwAAAABJRU5ErkJggg==" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/kids-graphic-tee_99b9e5a1-9e4c-4831-9ce9-e18f10226832.png?v=1787153456" alt="Phalanx HMP Kids Graphic Tee" loading="lazy">
+  <div class="body">
+    <div class="t">Phalanx HMP Kids Graphic Tee</div>
+    <div class="row"><span class="p">$34.99</span><span class="pts">350 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACj0lEQVR4nO2YQa7kNBCGv+q05LBy0BzAkTgAJyCZq3AMpDSdR4/EhgvNbIibU7DzOwDC2bmlvPws+gmxmBGr55YQtbHkWpRV9ddff9nEF+x2+JIH/qsutABOusjtNGJgCgCh1HzGERO0rDfj4P8wd/n23dYWXr6pnajVemLXqIz551QGf+uJNtctyvH19NY/02Xaj+/PqX2bWP/ussyzW3iy9Ud/6t821mdNUZKLuZGiJElzcNJWF6IHZGbAD33Leurb67pxMzvWzoYkafESo5Rc1OV+VTkb19WsHdaZErsPoagDs9qdgnY/h2K5URk1Uwa/Be3+UjcbSPmcGDUHLE9ImVCozaIH8DYW1o0y0KT2SpO8tNXnjSb5pzDTKhzDbex4JtbvlN1fVEwXKWZCGfwWyqj62NAWnPJZxbThYm5Swc+1sRFtZh3DEb+sLgETWJ4eMdr8p+GlL/p64zbSfN/a+kt12eMv0u43AEIZtVHG3NTGxu634BY/3wFy12HKlXnjzqKKUlKUUrEMjLUnLFr8BoNXcrufA3BObuFcn8ynUAam4GIGHjNTDlyB9koTb+/9Ftwlf8AOvPSVyVzhSBkzQTtNBJqE5SbVlj2Zez0K/iK3cE5Y/YZd/EYZNcOYCbzOlMrqC8UMTpkAXkk7UH+moJincO/aMZ+TdNei1ZU5QGsZisJpvI12Mjus80OUecxNUtRMGSBo8dWxsQDuVZBuQcpTcDFPtYtikrj6U6+f4JkrUBQqi8AjrF1ARmjL2oX2Ywdmf77bqv72/L3RZ24GrF/lDvfJn/rfH7DRw5N55Qn/a9hCGd421mfsvtHvTLi76MgExQdt9L/pGMp3NodW3Tm1qr2n2P8fkv+wvwDKu6vTxq8IQwAAAABJRU5ErkJggg==" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div></div>
+</section>
+<section class="sec ">
+<h2>Courses &amp; Bundles</h2><div class="sub">Instant digital delivery after purchase.</div>
+<div class="grid"><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/download_3cd902a6-9d62-45fe-88b7-797dac0b8260.jpg?v=1787499954" alt="The Mecca Operator Bundle" loading="lazy">
+  <div class="body">
+    <div class="t">The Mecca Operator Bundle</div>
+    <div class="row"><span class="p">$149.00</span><span class="pts">1,490 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACYUlEQVR4nO2YQY7jNhBFX0UCqB11A/oiLfUcawA3xI77YKbnItINqB0N2PqzUE+SRXp2poEgtSL0F0X8ql+/KBNfxPWPrxD470LJzDpZXLrLGoE1YmZ2qHwNk8SPfB/XtxDp4H5w0q06UasdUIiLO+W7lYtvIVl8Sr1saUOn/gPUHx+c6zfQSw9YhuuUH53rX0NJ0t4MJslt/hacdAulLhsyMy5rDO68vh34sUSuZm1tNiRJKTdyn6dp/1SZjQvQAayva0un/mPpVJ+NjWnW5iNOuREDzU5OVTbYb3D2N5zyNCtlQgHqtija/A0pN8LyMWD5GNzmqyvFlhi6FN7MnX1LwUeurw/K9XVImbA3A0AZFUMZ/Km2UvBx6fYR7m/Bv/dN4sK9tsNeIBTLHwvD2lIs3w8Ma2WHRWeOOCkGlyQx0MxYPtZWyhkoA5PcBjAqUgaeMDckBo6BAULZ2ahtbWjjiJJOkhSDlI8w1J8bQLCxZ7Gxhy71zez+XE9zdYeNoQAw5kZlzM/ylFtgzNOuDyVFwMfqRVkjRf1HYPCnGVYJaGoX5Uwzu82fVOCXtT1h7TFdD4X1zVxSu5SX4OZ17B+T6+tQ0g0GwG3+9jnNqvcGuypsF8kkl/IkneuvPWkXybS/DbQBWH3B/rWPF3ykDByDUv0WTWbWvQSzznIzg4908P6UFz00KrLr6E9LS3lUrt9Bqx2w5ba4pBZeehZ7re0pn5B66GSndP2Wp9nd++91i4JSJrjNS+VvuUj1PcVrxvL7wW++Zf22REj9sf4uCi7lSVgmfA7V2muP/f9D8h/xE09xorCo76zmAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/the-money-mindframe-for-artists_3a041f94-30f1-4571-88e8-739dc84078ce.png?v=1787155228" alt="The Money Mindframe for Artists — 9 Volumes" loading="lazy">
+  <div class="body">
+    <div class="t">The Money Mindframe for Artists — 9 Volumes</div>
+    <div class="row"><span class="p">$79.99</span><span class="pts">800 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQAAAAAWyO/XAAADD0lEQVR4nO1ZMa7cNhB9sxJAdVTpbhZwkTIn+OKm8kVyCQPyX/0ogI/hM6R1s+L+cwSgbkB2FMDVS6Hf2nDjsEhYSJCmmMEbzps3pBDfXi+n7xiB/57Vi0hHadfO9y+yXdInkVMSkVPNqIQkgIfbLhjV3NSQC67kUhXJJGe8RiAPafadrNu5Ax7S/Wy/31nt29tOX8w8PN5vgubvdx/++tl+f8hKmcP2nFrAxY9n3P8tv9+2WgZIfIhdcA3mRVu1OxrmqlFRRACMijseZ8hagDteRC71ogJJkgugWViQhaQ5fnKqh9U9iXSOEzr2De1N2jUjSdUaBD0Z8oAmwEUoBlsAAGp8PaxAHwFIHDUDV5odULOgqZpBcLcMJItmRwbjY8MsnAMrYnXCPYnr2GO1N2kV7McVTz0gz3VrcNIMAMbHa8iOb/sKUhUrNN4udg7bp/7h7K3/U7nYCdzrYlU0D4DCxRH0nDRLvDK7mlj5vvEdgNXc1FCc0ONJW3T3qljFK7O8kTmysChcBOrWoFeRDklkO6UCuycT+KIFGGp25wENuaCh2e0EAI8z3DrpVlEhg4stACxDlgg1O5qQhTNrdpwTgM/kksSBOq3pt/jRdZRN0qWqQk5l/SXz8d4Qjy/mD2tC9/XXXk1FvjphsC3SJU3rdkrGd0jbObm+8ajIDCfcU4G99Q27Jy0K9o2HY0FXsQbBBSPI2JA7gDzYohhQl69AksEsuNIslsEwNoE+Quvqq8Uy0McmGJKBjKNCOIeaUbVwq8B8BXQTG1Vg4+/vPgAQ2avq9qJZYkM4TgrHg09RU18dUWGwRSEsajwnPcR71X3lOSEPdkJ2cQQkQjPQhJr6CvRH8opyt6RZ0AQu1bE6Zmc70yw44gPkeNTUVyLSuXgQ6Gpu/WdmpNq63ZMHgXJH8zYZCgvqnjMgyRlILbpXFhUnszc3aVUu1U/VJI66PSeR4+vZziFXnSZ8hJq3jlNARiAPAGrzFWnICRgwAo4zzYJR686DFBF4KcivEQovZU3PtoVd6mVQ/r8x+WHrPwFzCdTZy4s1AAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/0001-7142097221906772598.jpg?v=1787924422" alt="3-Book Digital Wealth Pass" loading="lazy">
+  <div class="body">
+    <div class="t">3-Book Digital Wealth Pass</div>
+    <div class="row"><span class="p">$67.00</span><span class="pts">670 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPUAAAD1AQAAAACgyo7IAAADbElEQVR4nO2ZMY7kNhBFX7UaoBxRzpxRF7G4vpcW0mxP6Fv4IJZmLkIdwAA7YwOSvoNub+ZdAwamFSxDVlAfVaz6v4omvnVup2+a4Yd9NrNaDQvwuqBms/qNrTUza5+OD82S3E4PHVXCch+0+4uctIbybHwnuFrLm78kN7HFogbsBDDbeIT8AmDL51igX/zkL6nEvLUf6v97doXzcvtNI7dPvC411/Fj/f/rOYMXNRDqeP09pPnTGqSfRR21/fF0fCdkZtiy4r4AteWtrd+Xz+3N7Pz8+CFJ0pyrVDr6oFlrcBPV/f7p9YvmDG73K8TcAwyJzkvA8Hx8JzoGXU+8hqKGoN1b6+b80mrOL0fozxNDwjSiySsVyz3aATp/OUL8YIv6s+mpY36JbvLnYCe/Bvfluh6iPjLB7VQJHiQnYh6SDsJvb36k4G+xmM5gGhc3eWs/yv/37Gr6xU7XS+JXWwNv11ssMqmWufR0fEi6pIJXIuZKBQhuzlUCqufXB3pgGZKbAPBKdF6pdH48wvtTWJE0Qrwrwa3F8ksLx6jf3V8SlnsKfqVAdac7N+dj5FcXFfwaiHlQwa//3MHz84tmrWAZ6ABMSiVqBdMB+APtfg2aGETUGDT5FUxj0HSE+J14X0Zqyyx6aXpqW5y02UhtuXp+/zuBP1PUbK0N+ZWC/9zaya8UNR/j/9tHysBdtfgR8EolagT8Afj3wR8x98EpA51XImoNx5h/0U6V3L1IvOR2qlQASjxC/zvxnrdY3niltvzS3k5sEcuVajXbIfSzvwggFMuV7nI65kFuPkj/gwer7QzJSUrYYydziPfnR+gYVDov6fH++lBiPsD8hiYvafJKUu5DMY1o1hjojhE/3fl3SKWjp0RJd/13CP49oaaS/my2iOVXajUs7pK36De7HaF+pTW4WVKJuccp9+He/7pj6PsdgnYGud2vd2hu1ojbj4Hvay1o1ggwiM6vHId/Jc0aKTxILtH5o+g/NAFOWgOdH4Ob85C+DpnPz+8Jk8TcVPf5suAt+jlzGP03Z4KbdRGW+/v8cd9fcYT59/xA2fxl5SdeQ5qbHOoill/qj/D/X+3XS/KTH7Fh+dyW2az1OweZP5ToIFyjrYsmf15qy1AOsT947O/fdcZLTswm0fmL7JM/wP7efvyv/i/736qYa99kKtB0AAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/download_de7f95e8-6e37-4c75-bd56-440195ba291d.jpg?v=1787499950" alt="The Phalanx Legacy Planner" loading="lazy">
+  <div class="body">
+    <div class="t">The Phalanx Legacy Planner</div>
+    <div class="row"><span class="p">$39.99</span><span class="pts">400 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPUAAAD1AQAAAACgyo7IAAADP0lEQVR4nO2ZQY6kOBBFXyQpOXfmBuYiA32VvgclqMmS5liFqy/ivIHZuSSSPwuyZjc9i5E6vWhvAHvBV/j7/4iwiZ+Nz9NPl+H3ejSzi9pXu3zwBmq5XWJ778zMuqfjQ1GSk64qlhsVywRJVzlpC+XZ+E6wWsfH+tL593a8oXbErAWizTXsLwBqx1vpuXc+5iaVId+7X/r/fx3nx9M78UP3t8+B5ntn6xzqwPfgX8wjTnkMipKKHZysgn8yM4DAB3Bhfen8sr50n2bnGuInSVq8EjAGRW1oYTrmnx4/FDM4aQPLI8Ck0nvpeHs2vhP4jfUbbwG14BZv5q/53inm1xr0WXlKQCN6L5Uhj6EA0Pvr8+OHDsHTNWGag6Rrgmr2F+1MiZ5J9IzQ0ySGPCVVoi9463TV+YbpjKJm3OKtA95q0JeoLTjlSfR+C8XyiHYmMeSmhv1daFJ5HI0mlR6Ci7lJxTLP31+0QwB/TQUaKeYpMUjJSXMN+KRrKj2gqDm43c8waD6A14FPbmdKWB4plicp5kZupwr+7V6pmJS0+6sO/426qsBYR/w2MM2UnhHwSqX3x1wN+HYIWvwWnLQd+YuLmoOWGvh34kceubC6VNTCRe1fKqwzF8tNero+n1A4U/Cf3WeT3yiW73ZR2Chqf8n//2MoZgCapMXPgFdi0Ab4CvwX7YxImmHI4PYDXz31h+W3YCeaVGASrGf0bufb+m11NfAPuBW14P701q0n7oM1mXBRe68hf178FrA8qQBBC5PKkCe5WIv+TakMh/RJB//scOIK+IeUHwkzpo0CzcPa+jr8N2oL2ml0VL1RM1r8HOhr8A+0+y0AjTBJBS/RP3KGGuInKSlqpkCT3OKVXNRWD/+O+gO0eMnpq/4tg6qof3cIBT+jhfGYcwtQS34aNQcsNzq6BpYnfflvLfw7+lfa/Ra0MCV6X0v+hxbAKU9yMRNclFLhUWQ+P34nTBKxhXVoocDr4GOmpvwvHAci5pFDBHsAfBX+e+DzM6X3h//K6VDqKvTvYF3+qjT/6f9pr6H/dzoS+j+CEnDv3Hs431zM8Plt3Wrg3wK4mBu5xV+PqwVJenw+G5/9vl/9X+t/A4xzoeb7AQwRAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/the-claude-mastery-course_49764f1d-4a30-499d-a453-c3f0f3a86d70.png?v=1787154366" alt="The Claude Mastery Course" loading="lazy">
+  <div class="body">
+    <div class="t">The Claude Mastery Course</div>
+    <div class="row"><span class="p">$47.99</span><span class="pts">480 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACXklEQVR4nO2YQarcOhREj9oN6pneDu7bSOxklDUF/LF//CB7yiRWZyPqHcgzPVBcf+DOJxAyjBpCNDH4DlzIdavqXid+cV5Pv6rAn1pCK+D3sKj0YKUP1QCstIURJfkdTGuo+Jg7eak2h5Exv4YllUFLkjSbXxnbwvi/9GFAT6NdolP63d/6+Zzvz+1s4XP/71ze69tzexh3bqyMpiglL83Wnhsn5JzDZbiw/TNw3Sqvzp1b34YkaaUTg5R8zN3xqn2n4PcwWxky5nc6AVNrGDujKeYuFZeBntG0h6U5jDDj11DxylOSMlZoraJHqbB5ceUFd2JKQaqtKboHpUPM9yD5lS759QGekicp5i5pBcqgamVQY26ceGPu+SKrvL4N1fzHzUfi07fnxhnA3RRLv53x6+YjMILLY3NuMCUvLfJR1ejpEi43dtjD6IvTbPRgDKqUIXetdUN5xO9hScXl0e7Wlpt3yh4qpQ9SGVQPbWdon752RoOgRB+q+ZUp+bW9pyiPVgbNB0sYVB/iKWuoxiAlXB7vP4Uwt/YUdztT9PSC9rCkC2ERLnepuafMBqHCkDGtTAnXvmFjxiQtqTjN9r1nHpO+Vqbk91DRDpQHcAOwQjgbX29ncHf5aj4g5OkIwkcg7YH23DjRh9kKjLdyPRBg+mLN09cK+J3R6I9AOpqPrR32hJPElU/Rf9xmuAJF1nhcOsHmnoEPQ3HyQna+uXe3pbV8xYz5qAo9HO7i48P2G9WOvLGHapIa68b3bU+QONYsGVPz27hP9F/zy63IVXPuaUoXtZ7o3d+F5A/nP97xxHIBGwgTAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/the-artists-business-blueprint_89a223bb-af0b-4e84-9903-49172c71fac2.png?v=1787155180" alt="The Artist&#x27;s Business Blueprint" loading="lazy">
+  <div class="body">
+    <div class="t">The Artist&#x27;s Business Blueprint</div>
+    <div class="row"><span class="p">$47.99</span><span class="pts">480 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQAAAAAWyO/XAAADBklEQVR4nO2ZMY7kNhBFXzUboByxb8AGfI5pzZzAZzHgZAGNpdkeYM/jE6zYcwpn1A2oTAI0+g567cxrJ2sasJkIQgV8oIq/fpVM/Pl6OXwlCP+9aDKzJp2YGnix1U7vth5mMzvUpDJJMA9xNlMGIIz00lj1JGc7c+F18iovLRde4/rIuzXfet+/jr5pPTc3OsLH+Zq0/1P7fj36cCLyEH1arLy362N9qqAMs0+rK8AlKANOS1UqmRlv5UPrx3ltm9v8fA4feTF7rEeFJElJkkZ6ScXl+6s01KNKxWUuYYjacVkqHbSlz4vVpFLhDkRbiFzCBlaIPlWl0lVAFzFtQNjQHoZIW5NqxOUFXFYqTtrpor9nWD2qA5cwxLCHDXs+QXPDpbnXcWpudSvOxvw0PZ8XwjAt8HIm2RZr6hXagzKmLUoaosagvFhxle9g0haXCy77VFz2Kk5LW3otVbN9x4m2EJe2dPgxDFHSFlVRGQ68lQ+2pFM3kU6wPuIy6fQprz9XrYPxSJCONIQhek3P1sAH82PdO6g8t7bFxYrLEDbmx9mrrjK05ZXGdMTvs9lymwcaeLeaX/BI+mH9XjeY1gaw9hfirw2wfFe1m5iu2dqTU3Ohzwu45PcgNZeq/qp0LFb6u6XSjpNPBWoqA9qD5FW6uFyC5Ef6vLS6iqraPtKxABHTVRqBxUqfq/urTCtlv+OkkQ7+BXWwgFRc9knKUukiVjrq+vYxbHDBSSr9/cDuhrRqHWzLK7pqPduB93Z+0jD5VD5VVoakDS7hqgV6aYeoEaKv65Dnq5a3aZj8HuyMFZcaK930rff96tIO9/bB74BS6bMfgbp6pXvb7KRUYGm1fenBKlJ9mfVZ6Wge4habZNcE8wCVs13ySRtLW35P9KQt1lTRw33W92A+Nzdcbi64tMiO1FSG4/1xCz+2YgZu4adopvejKnrRL1Q2nTDC8xnmbQI+aX3ca/r2oMxDHCJt6aa11zH6z7ZazWz/Y9bHpBe7Zv/5BOvTfU5Tjcr+/2Pyt6O/AdMdCLVyyoeqAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/0001-1823346063051769486.jpg?v=1787924400" alt="The Prime Corporate Credit Blueprint" loading="lazy">
+  <div class="body">
+    <div class="t">The Prime Corporate Credit Blueprint</div>
+    <div class="row"><span class="p">$37.00</span><span class="pts">370 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQAAAAAWyO/XAAAC8UlEQVR4nO2ZMXLkNhBFXw9UhdkIcwMw8ylEau9FLSmNqnQmRyKli4CZQzDDVHH4HYzsbNdOdhHYSBj8oF81uz+6SRPfP0+HH4jw31NnMzvOZs1Rp6fm0tmj2WE1s0NNKpOE5X65uEWJD41oZ5CmqplcreE+nuXf4h3+7fQqO3C148+O+8/qx/LYFMvXxh7WbSntr4r7Y/U+jgv3JzdrlnW/Lu731aAEvKaLy0DLkACnUpVKZsbHcunCtF664/v62IRnnswealJ1kopObi46uVRaXudCkLTXo0JzdokuE7XjkpR76PKQimmsRzUFqQCULhNpwwZApCqVdE5+oo9e2oCwoT2Mka4m1f7ZbxTLTtrpo58YVCpSHfjIVzu24ZzC2+naHN9x8zrobqnt7YMK62O3fgsbxfJTg2yLeq7Zg3uQIIwUy+CljdJlV7UHD1hmKS1OfmJIlwNO/pk+0lbNFX0EhoRpgzZIftYWNdet9hcKwTpNQIGXpdyfXtPlW81cTWHES0p0eZBXdklT2JBq5gpcWh+4dmU+wXoIG8d29Tq+18yVpORnjZROI5pzD9BT19snnLRDLIQROm0RINZ1hjaMmMtupl2VCut5lrKb6zrDnAeVNujz7DfnqpsrtIfbpBAh6GalpdNZvmoPftwmBSiWXyjw1PC+bgsVe/BAuz425jJLuNoI0HMEWB+qbhPxbintegembaHLRHS6Nr7u3K4NWpyK5R4/4URb2duRNP6NRiyEc/Jz5Wr/CyicUzGdpVkjmiDWpVIeUiGM8TbBd9rwc+6pS7UDfgcKDEnKLt2UypuXpIn+xle63H++1ar34GxmRyAeLQ86Es6yh3Wk8j0oyU+4BGGMfoKoWVvle3DORL8HCZOSdlzyE1Sdrz7Vj/zU6Hp6ibyHMa5fteEr7oN3t4eMaIRr88fv67b8NvGqy5e95u4clOgy0NIvl0F3EdnFalb757e++eSSJlzybye4fNVZPzvuj479/8fkX6t/AsG6AoZm4PdjAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/0001-1017201728883529376.jpg?v=1787924410" alt="Autonomous Field Sales &amp; Commission Multiplier" loading="lazy">
+  <div class="body">
+    <div class="t">Autonomous Field Sales &amp; Commission Multiplier</div>
+    <div class="row"><span class="p">$37.00</span><span class="pts">370 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQAAAAAWyO/XAAAC/0lEQVR4nO1ZMbKlNhDsAaqEI3GDIfMpDDjaM20Vf+GZV+XER9i7fMReRNxAykQVvN6An67txFZgK1GVJlCXptXTGgnx4/Eo/iQI/PeiTkRqyoxjwKM9pLlaKaKIFDlRCUkIpbUPOXfj9mo3KyZyzXqSUVpsANAHoO4AjQMuqf/pff86SpkRC0Dhmsmh+7f2/cGo7kn4HKXHU4+JV5W2zKgKwNIDuFqzYvLm0TzVvlAyZUVFEQHiCWy4Wsh+AhseIkM+VCBJcrWzQngiCUlzL3LOh8oFwDCUPsGSZkXpyQCYjKgKAKVPbIC636U9vtijlQJQbHkzuHjDUJIrJpoXoMYFaN4MriiZhLOmnvTGhZJJApATVQHYt7b+pRn3miI92Iw7YBdfZ8xgBaD0R43F/+xig/iJ2GsIvh7DK2d1DpdYF677mOxDKuVqZ/CVk+2Op6YOE5PwhCFPJcPE1OfkFZvS1d8CYC9ZCCeLO3qtkJNX4Aul52pnTQCAzpKQANBlVQY7w5D0XC39LfUve2ZVBvBlFybYWVOHETelJIyaJK+KjjAulKTjrOhQ+rtEZ8xghQ5QD7xJ6gGkT+GPfodA40859eobq10GjGrIU81v1njjuHiTUa8KUOj53mA/imhcjXi0sW8+t8eQWRkICaOm7vZXk089FyIr2xmA1If7AYjU2VPRAch7B1+YPIBRAUtvGErP/P7qZU8kCaU3jvRkGG8Hn9n12VmNCxPvYtNZ+tRz8chYncHV0idg8oCdgc6euCtiRl4VkHC1dWcrpQujcglPmBXQvHoF/O4TMEIGlK7u4qkASheHvD2ZU+sNgHlvnnpIg/0YcPV2zf92xkQyQFPPE3Q8M/PKiUjdWWmPAeNu11ipDDG/b79dy4f1Y4Cm3HpV3L0+Cn3a4qw1m9KZd6lUhrx3EIAE6PGmInGwJ2Swi8vZZ/iIUivYNZ4wbpc2Ib61OXlV3L2+Dld7/MoZMtiFdsWInP7qo9e3YXLYAIWTc49fbKU59Ur+/zH529HvFmUAIpVxYM4AAAAASUVORK5CYII=" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/0001-825798745641703888.jpg?v=1787924390" alt="2026 Metro 2 Consumer Credit Defense Playbook" loading="lazy">
+  <div class="body">
+    <div class="t">2026 Metro 2 Consumer Credit Defense Playbook</div>
+    <div class="row"><span class="p">$27.00</span><span class="pts">270 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQAAAAAWyO/XAAAC5ElEQVR4nO1ZQY7cNhCsHgmgfKJ+wPnIiuNnBdCsNNYCfpZF7UeoF5i8cQCOKofZBLnE8MVoAwmP7AMLpWpWNSXEv6/b6QdF4L9XDSLSUUTuXlrIJc+QUxaRkyYqIQlJEzvYCvPFypkrJnJVZTLLGaG/nQtyu99fn/sP6X71uT9THXe88+4RhOEvaNqohCZiyC2K5/XcbfqoLCOQr96smKK99W/OHGhYVFFRRACM6DY8zpC9AhtuIhc9VCBJMiQAwooiJM1zk7MeV1sW6V7cEgv7hvabtHtBFtUeBFfLyANA8QkOg62ApNFBNLkCbr6T1BDsp2jW3DqzAuChydVhyeK5kCSjCalhEVbo6gp42zv22Lsg4sH+D8GAr1FXV4ddYgGaaA5MsXhWBwDKunpPD29DGt39M6/e3Po38LCzsq5IxjLY6oonI4SzK5ImFq/HFbjaGfBpIldbnXleFHah5hdsMWQSm20Bv7fu/grg/ul7f+Wm6YObFelepEIuGGHCLmfzzVVgUO1BTCxAQ5IV8KzOhDS6otqDmxXpPOsupzw7UJaQL3aJdtVNyNXxJuJB1+5FePWgXCVfdG+G6syBEYasjoELzWqr004yJpT3BORTNqFDvp/zJbf7rz73x1X2D9+9uNl1dNWBfRMw2IW6PvixFpoVQBlsdfBphGYPPlFhwETAMhqmJjIoJ2RwtdUxJMCQjGQaHWCrMleHXWhCmmgOyydhxXOJUHXnQMYiaQQ8KzBYsgCApjuDgRUY0HxEPyY4roAzygn5K4twdp3wesYGoAOakC/KjrN37IHCvuHd900owMNr+uA/Zmdz2NkV/7SdqqyrFYAhl2iOp/stEZJG1ckLDCTNioZcMQKSJjJQ252R5QzYeYfQRD76tx2UdpeLpq5CgjOrJYtPQBkwRbMqTxMfqAKXaA6MIJ/Q8Dvoin8/x/hnehihOQ9+vPVtGAHZZ4cgdc+vtoXmfSX//zH56eqf+2sZMpWhdQcAAAAASUVORK5CYII=" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/7b65d5bf-79a2-43d3-8fba-e8c82f642ecb.png?v=1788014553" alt="The Architect&#x27;s Blueprint — Biography" loading="lazy">
+  <div class="body">
+    <div class="t">The Architect&#x27;s Blueprint — Biography</div>
+    <div class="row"><span class="p">$24.99</span><span class="pts">250 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPUAAAD1AQAAAACgyo7IAAADWElEQVR4nO2ZPY7jOBCFv7IM0Bl9A+oiK2GPtYDc1owG2GO12HMR6gZ0RgOy3gbyhNsbLNBmMBUoIAM+VNWrnycTn9n98Ok1/L6PZnYCOH3wA3RmOX3waM3M2grwmSS4WXu7nB/tvVmsL3+c/05OWmvwHzdr+fCKfHCN4FfsABBtrAIfgOzSn7rbpfXv5yaVPj/aL33/300xE9wMKGoF05To97MhlArwSXKzV6Lza9DsJW1ectL6enwHZGbYcundtIycbLm0p5/Lpb2bHWuIryQpag3FtIY9yDAESdLL/YdiBidN0uxXgKvovARca8A3+zUUvORiHij4MbioMShmXp9/aOaa3MY1uc1PSTEPoQDQ+akS/1E6r0QvqZgmFfwYqCa+I8CANprkZgbo8zWVvo76wm0N2vwxYFrD/aojbvbW1tHf0OYnuZkm0WsFy0PQxlVupqkhvjE3SVFjcMqNAIKLmhKV5F+Uktv2gtckzVwTvZRKrwr4e4DbMdya5UjpdelPnbcW+Na677f76+fTnb9uYwhuZqBYbqSYG9HVkH8HbBlDMR3B5OTez38ZwMIHw+v5e6Dz62J2blLhdjf7Mzfp/sajxVTB/HJAZ4Lm27rc3/wx6P38aP3sx6B3u7w+/w78XEZOlh/tidvKyeR0623kZLlJFeCDHxSFSfp2hgIPc9/9StH5i97/1KQ8ADSSMsA+KYyAr6P/+iPFdLF7fwa37efXtMN9NT40MwS3QQAvuY1Gmrmm0ucK6h9SvkozQK8xFGhSsb0+V7Ffzn5KwIDm3XWN6POwD/kV4Nv8pD2WHQNu8yOYJKdchf82Gu1c7XOT9qkPCKWS/SNqUrEM+6fzI5r9GOqYD1DUGOj8+FyCt+f+mwq+ivxTblLpJZVe0w7NRa3BbZXg07qPftr8ijaGUCyz0/nl+A7IjtzeaJI1y6R7o+Oyy71f9P5/2K/VaAjaW5uX6BjAath/n/rV7CW3+TEoSonOj0Ezlegv4KSRsqumXqkAwcUa+u9Tv/8A/HegWP7W+5ipZv7b9Wf/JDEmJTqASupfzAS3i5S5Sbv0HPecrIIf8VfW7dJ4fDI5uK2W/rtTF/Drs0jHfE2lq0N/mQE3Q3DSpGJSknbMFfjPfv9f/V/3/wDemIHOTcUBpAAAAABJRU5ErkJggg==" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/power-prompts_3c9fbbe9-4309-4b61-8ebd-7e7ef2b9c920.png?v=1787155151" alt="Power Prompts for Claude and ChatGPT" loading="lazy">
+  <div class="body">
+    <div class="t">Power Prompts for Claude and ChatGPT</div>
+    <div class="row"><span class="p">$17.99</span><span class="pts">180 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQAAAAAWyO/XAAADA0lEQVR4nO1ZQY6kOBCMxEjmZn5gPtK4+lkjVW25plqaZzXQH7F/YJ/WSEDsgb7uzFx6vdKuD5YhDhlKpyIjQYi/X4/mJyDw30NnEekWPIaO4tFRPIAsIk1NVkIS7FXIr+ktYgHiesGdnKpmMssAZI8O5uYwAugW7NJ9ddxfoyP2gVN+hqzS7so/Fvfn6GI4i7Me+jAe3ViflWGAS/uAJW9xlV7NeoJiqcqKIoIle6vntDszx5vDgofIpR6rFo4A2MACRoe1g9rkcvCL4/4KXfAQUQnIrgf0nHYpL/0+1NWrl14FHsZHPUcf11uvQge8gUc9VuCBO+ESrJ7T1WI0HprcrCZ9PVZzgi0j7iwwZJF0RZF0D0VqsjqgeEqBpKstjpvlnO5k1VwduFoyKZ7bnK4WkoCauWog1EEas0VpcI2nrL/0gJ7qqqhHoXhgNK0ti9FBT4aUP2qqKLAL3ARwwT5EmIQyA+BSUxlIbwuM/yyuAyoUmA3F1ayrBffQSdywNsZHeaVHN+bW6u8162rMLcqLbWF28RZLXh0nXFHX9S1mi51Ezusrb6L3Hug+0o8ZY826msyTReitPqBYXFIsjv5f0HH0AVh9nB1HBX2YDTW1vQGMj+WDPgK5PV9mFVugsjJs0EwqFEdvi5x98HysOKX2P5jF3gb9LgwYc4uO/TdnKiuDh5mgglxMG/V7j5hfk5rzpeYNzum0VoGfXu9JjGaDnmveIK0MhvHmAKiAWdahSFKhVNSrBoAKWWwLaQDkO33E3O9D5Yk+bzBTfgY94S3q71kHAECpqgwTrpaT4TlSYMSdkKRYU9sbAG/oJL1BP+wzlA+KFPa7rBXnQZAkOQGAJBXgEsCZG+rmahaRTtI96Pf+mwMAu16y//K4P12cSepzKDQbzuISblVnnBbIvQUt0f3ZtCAbxNIJ7NfG/T00+wgYcn3lM3SOz6qu7xN1bIGP9BDzLh6F/T7U9O2fdUX681RculpN1u2D4ARAT+Z5fv3QkyELzGZrelH5/4/Jb6N/AT+o7Kjtke4HAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div></div>
+</section>
+<section class="sec ">
+<h2>The Library</h2><div class="sub">Individual titles. Instant PDF download.</div>
+<div class="grid"><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/the-way-home_eb7e2e13-72d2-4356-b018-5ed93e787335.png?v=1787154281" alt="The Way Home" loading="lazy">
+  <div class="body">
+    <div class="t">The Way Home</div>
+    <div class="row"><span class="p">$14.99</span><span class="pts">150 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACY0lEQVR4nO2YPW7cMBCFP1oL0B33BrMnkXKtAFpLiQLkGClyEIv2RbhdmgBUFS4g66WQDbhxywWCsBGgKTSYeXw/cuKDc737qAL/agnNgFduEm2QSktvAFbqthEleeVGmsOKjxnz0lq9jYz5Gax0UipOk/xMX7eNdyX/eMTCoxsrfOuDktN44Ykvp+UhXE/123jFxhwkCJKXxhtg4w4553CX88nHy/nE07Jyde5QexqSpDkolZYh+Zib/VXlaTwtzt13l5H7Zx0M2YhzbqwO0TDa4uxAaZerWx74fNIWqi8l5kZeGSsuN0nKWKE2i96h44sr8dhEWl5O99ATpLU+REf8HKZEGyb5mSbtpFq5jTxIMfemmLHShtVKp6n2TZE55852uLhP9ITp4iPx+HKqvZQMmmmkqCn5mIdUXH2FlUajpccr71YDXK6ssGgLqylq2jWldFopXW7qYgNJU8LlHin39ipt+Qbua6V0muSjlKQMdLdwX4MgKGkLqwFD8jND9aXk3gph3Z0gbVhNW6jMG0ha8VtYgR2sIxDG2prytExp+cT3pG2Z4j00wuUm1c8p5mcaFacpaWZIuPoXNuotJHU7SqTS1XZfKGrESyuFMCVtQKmODXZx3cIIXX7l9vpeFEVNiU5KtGE0bQCuPotKkmJuko8arbRgmkP1acyA32hUutyb3+jNx9oKe4eTxLPOJ/81jJTnDEV2A2e+88auan4G6vPGW5TOn7urM2kZdod8rWsCD6/PcLgELeefv/4cf/9I8O0miV65N735DVOs7zdmwEet+I1BwKD6OcX9/yH57vwF3lTYPnVVisAAAAAASUVORK5CYII=" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/lb-04-fund-your-business-cover.jpg?v=1786289495" alt="Fund Your Business Without Risking Personal Credit" loading="lazy">
+  <div class="body">
+    <div class="t">Fund Your Business Without Risking Personal Credit</div>
+    <div class="row"><span class="p">$14.99</span><span class="pts">150 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPUAAAD1AQAAAACgyo7IAAADbElEQVR4nO2ZQc7bOAyFP8YB5J1yA+UitdtjFXBrFy7QzRzKyn8R+wbyTgEcv1k47W7aAQb4o8VoRZgLPpCmHvlk4nfnfvqtG/73RzOr4+VhxMt3al1Y6nh5XM3MrgXgM0nAj7m2BMDjCvyYnbSVkD9Wu9IuW+DD5bPdPy1O2RIQbSgCH8CN7wusA+7bpeP+9Uji+8X/k/9DGMhvCe4f4Zm694z/z0dRktvpJWkImiBgkpy0hfxqfCdkZrylx7W+rRu1pQ43rV+ud7NzCfmTJMVUzZK2oJgITqkLkqSX5w/FVM20CTANYAmcUhfc7ofX1xdNdEETvZ6WH3C/MvlyfCcaoDYNWJ9YaksEWIeF5n3i/8n/pjP5yRoEdOljvlHNtcI4vxwfUuqgTeB2OmjoRZv6o11eXl+008/ZUjW7ieqgNk1eM/gi+nf329GrbvIbNFSi1QZt6kvAN9ErN34jQzVLGoKLqZqBAvCdsPS41qzn4KUB4qWa1zZ8aXObHiXMfwpn8s2PMcvuVyx1i9vXcSaGIvhtp5JTqmYpdWRLlRRTJaB6fX1RTJChFw1w/H/ShqKK4DdpAOhQ1Pbk391vAF0h+IKiNrJpOyz3axJ8Ob4TsoGadZSf1sOa72YDNX54fX+ceEsdGR62fgSywkC241tfAv/udAC9NPkB8JoP/sAXwb+T34ImP8rtfpTbqaTJDyE3JfDHmXY5Y816v64nz8Jb+stcTt9wY/MO8f9N/sZZE73cBGTguKRpSrifD7999Odl/epH0fhR6PK45hufS+Bf1i3kdtngBrgxdYubqGIZ9wva/SgXE7iYuoClShm6kIuoL4qpUm5TL7fTkVsNwe1eh5zwcnwnGn+/1grnZf0kN9esw3NdkhWhr0Ub52zLBro8WvctKNZvCQ458NX4kLQFN9HPufGaDxGhTf1MIfPLDiG32nA//8Q5W6rkpjL0jagh0NAFFw/9pRcNHaXsl5KkyWvODRxMnPFbUNT4enxP/d6Wc+BGRw0P80rfqaF7fX/80u+7xe3+TLYE99M6kFWGPhkTwT2XuA4sVXO2p1VCfQG4+WEhXqo5N/5L6x4Xgh6XMuaD4zyuay+7umndfj43eFfCfB8PrX7ATV5PEXWnn7Ey9LUJcJMfngtRA+TmGFcLmO/t//fV/+T/GyhoYzX+UWPkAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/lb-11-legitimize-the-hustle-cover.jpg?v=1786289539" alt="Legitimize the Hustle" loading="lazy">
+  <div class="body">
+    <div class="t">Legitimize the Hustle</div>
+    <div class="row"><span class="p">$14.99</span><span class="pts">150 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACZ0lEQVR4nO2YQYrsNhCGP40b1LuakAOUT2K/K2UZ8NDO64Z3rFg9F3EfIEReRQMa/1l0B7J5ZBU1hGhhg2vhovTp/6sUxHfWx8v3IvDfDaUQwpFthhRC/zG+fvYhhNA3TQMlSVG5U9xNa1TGo1S9NC7UFnqu/Nzzni8U7LySwtx2Uw73l/y3SzlaJsDp3/rXP4dCvnjc+aUvg7317dN4sLFYRbtp1bPYUAiBcJv9+H57G49XJj5COLSuhiQpPR6rUu7un5pWA6UMURkY7Ky40Ak4tU5jseoFq5SQAay6dju3TmO3GcY8eVSekHKnAjSXLzrpV58pV+AIn71JtT2iZ8Wd0xp3k+JCt8aldTWQ8uRlsOpxAcpg1cuoxmy8ID/cjnC5bV+sYuf8LZFeP9s67AtXJgpATPnbCluFkKf2Yj4TdzppMT16sZCn1mwsnFYpT84AzpgnL2PuWrOBvfVH7ADveSJ+tQO20JiNv04KOKMqSrlbGVs7LFpMiknVGWx24LTGpb2npNzd2YgLwPAkT1mYnMEqBSbXYjMFm1tvSsrdWjApSlpj0lmE9ioKuO1c2L5sB0eh3mCbm8tXhjKAl5A78fCUJ3Rf3RqTKnG3ihZ4Dhs6q8BETHlCUnWpNRsoqTpjBu1WXTtAaC3mj858Mel+VseMa7HmbCxA3AEGq0TlyWNq7bAvBElcbXZ93R4NaZE3HpcOsL06bFoJuuj4xw8/3UL4/cfa9LYHpYzHJK138Rg1E1N7h72nkaGEfFLcrbqkJ+iGFJUnL6MqUuYJ1XhM9MnP61EhKoTX04paT/Th/wvJv60/AdNixmtI8OIKAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/build-your-first-ai-powered-business_e17446cc-7023-4e85-b128-4fcc66963e03.png?v=1787155128" alt="Build Your First AI-Powered Business" loading="lazy">
+  <div class="body">
+    <div class="t">Build Your First AI-Powered Business</div>
+    <div class="row"><span class="p">$14.99</span><span class="pts">150 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQAAAAAWyO/XAAADI0lEQVR4nO2ZsY7sRBBFT9mW2kQ9IVlb4j/seRE/wk+s5NnxzqzE95CSYA/f8SQ7ewnCztqSx5dgIEFil2RfB9Bh36CuqqqrblWb+Ofzkr0Bwn8PHcysZDlVli1WWWMns+NiZllKViYJhevgds6j630R1HOW+qSeXKzithRhzXxBtEnjeuRu5UfbfR81nSr1y2qW+WJy/dey+x6aD+uzL0Kseaos+zv69Vl5jcjWqmTR6F8Or8Ht5IpJWcnMsJngLtwrbNrgxovZMR0rJEkaZoKTNqJJco9LdelYDTO43XdQe8n15KM0g0vIKgNalnxuAzZZtT77tbIMArd0ESwAKGvLPwdl567ssyJ8+RlIme1oh6BB19EN0uiGOVeEfIyWMq+kq9ygjViTy+2cx9joOtKkZLX7jVh7jdLcokEb1BBI6KsMeA3+spwqO3o3Ui9F0MV3aE/bnbcp2vwadOFecfMb63nS+OF230Rv/qoSr8FOB0KpA5N7CQUpNQPaOUs7bYg1EPFbeDSgIV1ePeqV1f76A/jfCrdnbmMIW6EPtfse+usMGqYOf1k6ypvfwKaONaFCRjv56AZdFRttxGbORw2S0kbQ9BqW73/apm9lUDZ+/W4CiN/sSbXovSrhFUxb0IUfR9cDLmm90iEfdOGpKm+LG0qWtVo+SWPKvMqANpQ65CMKW0CHfKAGfJ+W1d2izQTti9ny7E9NKTtVyzHlG+x9F6j9FtR7jU6PN7iFlAo5w2aINnWTfZohwlNjR16nj7b75tFOLpqZEGu/BfAaoz1EYNJpog0RL9HMZ7ndbyHaDIn7oHdjuWfFZ938qVrz3wvcLwfClzplBIf5r1FrmM8jzdwG6sS6PQPujR1piToQGA5MunBvyqS+kiT1fguxmQk02gKmjZS6HfWA28lHp7kNTurA5jZ1vZLEzZ+a9egL4m25CnyXtF4VsBwCNh1w/aKhjGyTBiNY0yftgwCcBd6qpbEOO/rrmHIvymNJ1PvukePS/FgxJN3J8FDDehStFhpd5XpaYsKJ/s9d3813WBO6wGDbtDz7IqTUV/b/j8m/Rv8Ap+DixDdPemsAAAAASUVORK5CYII=" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/fix-your-credit-yourself_0825fead-26d5-4366-9431-3eb87387ba94.png?v=1787154238" alt="Fix Your Credit Yourself" loading="lazy">
+  <div class="body">
+    <div class="t">Fix Your Credit Yourself</div>
+    <div class="row"><span class="p">$12.99</span><span class="pts">130 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACVUlEQVR4nO2YQW7bMBBFH60A9I66AX2RWs2xCrCQAudeJdOLUDegdwxA63cho+gm3YUGis72L2Yw/DN/Po34IN4PHyHwr0IoAja65hUZVCF4AF/7lpEk2VTmjCnBM6l5K7XuZRS83cAzleBtdBfZSOhbxh16c8tqf/hLhmv75Fx/gaZVen9en9Zqysupfxl3bqjgMWWQIrP6c+OAjDG8EbCRb6ejKbfTuzFPvbshSUol+H1WJ92j+6QMeU++MWelErzd3NJ/Um4n/TBPmOfycjLfR6gw5N4ULbNsKgFF13w1ajCVue+jHND4YqrGIR9NecXezOKrxs/J9XFoY87glOvZXQTM2cb+mhIJ3FXNXbJSAXD9NUWLt5EhWxW8lRo2laH7wKp5qeCVdMk2SbmaRyhswMa7wmI3gq9nundDkuqkxdvNNcBd1H993e+NJGWpBG+TFm9V+l9fu5zMucKsnRa4S3+KLth9eQBSgcdQdMiSlv15OLvmtfXvxgaeM8M+q0xqvk79hV5SVir4anSRNoLvv8x3yHwlrHwZ4fjGkN6fS2ehP6DxNimCdxFW4BXkv596K6xrWO0LFG9TCQ/QlAM/V6vrNO6XeapnZ1XPrnU/icsgG13zdSpzrrgF6K0pB3CNyvUJNN6mI9fmlcq3vtw4kIwxR1OGfMQtq93cwvGzcn0cu2uLbqHCLCYtXukRPmV39FQISCUAj/ApwJuTXOTVm6+8YlP5xFx/g67mVHFtRSOgce5ulyTZjUF1KrM4MwjobJd+/33tR4dsfIhPMf8/JP+IX7fIvrSfqJDKAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/the-second-chance-blueprint_3d968ce7-1050-4a40-b6b4-7e22357198ef.png?v=1787154315" alt="The Second-Chance Blueprint" loading="lazy">
+  <div class="body">
+    <div class="t">The Second-Chance Blueprint</div>
+    <div class="row"><span class="p">$12.99</span><span class="pts">130 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQAAAAAWyO/XAAADIklEQVR4nO1ZMY7kNhCsHg5AbdQC9gFU5lecOBf5FfcLJwuMZrSrfdUllmbfYYB6wZEZBUgqB7OJA68vWTOwGbKCLrSqu6spIf7+PB8+AIH/HjqJSEXpsXgREV9vjZySiBzKsQInknZXkqOu4AhDy3glJ/YFM5mkwdvcz8slDaFqdWnyDZtUnx33J1AVrwOlSWYeQtX+a3E/RFmbkC6pd1WrnaTDX9ESrJQBwCZ2xDXY5/rV6Q7DXJQVRQQyr666YWsg8wrc8CxyKlmDJMlRe5eFK7KQtPfLcjUIThGwO4DcKmlHmEBGwBZltQPIgAnZRzi0ugIAHKRkv3qLhsr45MH6GuyYjs6O73RLsToC2iNDj4AQM97iY1geYj1/btx/VHs0RKs97Ag4O+KM3OoQSurqgJt2Tb4lBrS4TtnTBn3B5peC0/mALzVmneKzX07aNSL15tMFZXUFjsqQPVdwitcAHw2zxCuzL9oZlIRn7wAlAZiQWx1YsjOA5MAs0TALe5c9V0AiUNZfTbKIbq4THRODvuAV3NwKtCV1tcPwXVLvWQuQeHa54Bc84oZNIPvR5Ye0iN3Ru/ygw1CNJTtDq73jnjoB3RHplJamokiTTiVZ3WAmOegKZTw7+6I22FGHoEXnoMx1xxuA5fDj8Y/qe1qa9PDj8VtZL/rFDUE6GZi/uNWBtZnQ6urK7jgSN58lbg2QRNJFO19RRFLRLXWHod0BByiDZTSBUzRFHfIB0E7yWzzP8BHIwJMXXz/Jp8f96HBi7yDR8D4HW2XIEk2wBScOOHFFBs6A5wo7sXfctUfZ6TxxBXw0IQuHYBmv4e5Ky+oKr8jQpQFS1+CGzecWZkqnorqKJqDF2b37dmXgWDxXra6OQzQhA5iXCzZfCde5pG8HRwB2xzWgVQbuMITEMwpv9CTteF/mr8HuOjAL16KsDve3PqQjlq/skb7OK/R3OUJORXdnAIBG5F9TDbQuzqnS3779MpatQTg7wgRLriAjkIGybzKH+1ufZ9csvgbkpAN1xBnpVNLJUERwSysgc+8wyTqnix6djuVYyf9/TH4a/RPH0fc1Z84XNAAAAABJRU5ErkJggg==" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/lb-03-operators-reset-cover.jpg?v=1786289471" alt="The Operator&#x27;s Reset" loading="lazy">
+  <div class="body">
+    <div class="t">The Operator&#x27;s Reset</div>
+    <div class="row"><span class="p">$12.99</span><span class="pts">130 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACfklEQVR4nO2YMY7UMBSG/7eJ5FB5EAfwSByAE0wMFWdCyiqGWYmGO1BwCrYhHi7i7WhWvKlwJE9+iswiJLQlHgnhJlJc5Nfz/35/L0I8suarx3aAf3ULnACYBYPLPeByb4sDAJdrymghBDqgSZie3rf29oUpXcbpeeVqRIUzk2ViZEAW7mkmDHWr8Wvr5LHbNLRfJPz1b/252vPz2KL7jJPk1zxt68u4AiwTYAsyjkx2OraAZ6gtgyICuQuuEz15HDBgFmlrNyxJMnKf4Mlkojbrq6oWBaMChgzIXhuaBXAAxtoyqHAkC7IogB6D42L3tWUstgCwTIY6rKoyaqcouGBA7tHQrMejgzNkqR9fTbIT3mzzzu05y6aJiBfoFB3JqE3iBCB7Fpc9K3vjCgfb3nWwxc0vbXHm7eZ9RNycttUv+pGkNslMaJKJZMpS3xteT9vuACALi5u9tOhwDLW9EXUAo45csUdY1iCrHV8sMJMtyKIjDRmcoV4gN4A1Nj33aY1SX9sb4IJhpS/0tjgzYUxmqn+nRB1c9gyOUbEW4hJ3SiQJTzKLDjCRAYANtQ+F2qTc230iH3gDUjtFQTIAoiMfeGNMkPoNGxUuCwMgDA49RmZ/AfpiwNofiy3rEJcv4I3I4jhZ0kQdkIXBkawvQ8dkoo40iy2OC4BLeGMlcx0TJxuQvWItTmUZE87ol3tbzhAYtfoMKyRxsCaad8eAfLABma4yBLbAceOA4+y/3fKG2Akg8v1ZuczfnibO13K9nV8xwEx2rguB54meTpGf6IdP9sfm/mMCbqrTF0mz2ODgV/CCY6zPohQRfNUmZophFzdj6lh7TpH/PyR/Wz8BsDPSUBniLS0AAAAASUVORK5CYII=" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/lb-05-business-credit-roadmap-cover.jpg?v=1786289504" alt="The Business Credit Roadmap" loading="lazy">
+  <div class="body">
+    <div class="t">The Business Credit Roadmap</div>
+    <div class="row"><span class="p">$12.99</span><span class="pts">130 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQAAAAAWyO/XAAADFElEQVR4nO1ZMY7kNhCslgagLmoB+wDqB37BiPMRP+SAmR3NaXN/wC9xYkn7jgOoFxwZHQVQUxeMbcCB9y5ZM7AZqoIusArV3ZQQ/3xu1Rsg8N9DZxFpKNKBIiKu3butiiJSlWQlJAGlx6IZnKLxOuFKTkVvMkqH1/Ui23Mc0EAzErBL8951fwDVg21eeUCs1wOa/l+r+ybKtvapj4Ntet0kVn9HS7BSegC7mAlXb27ti9U7aqairCgikDXbZsHeQdYMLLiJnMqxAkmSkw42CTOSkDSPjxzKsZoDYO4AUq+kmVB7MgCmKKu7DjYBtU8uwKLXDEiAhZS9q5pw4WxTjyvNHbBmAmxJBQ+AZhA4AEKseA1PfvsQ2vV9634P7fGChi1WvYk4sP0oONrRl832BXsXq0gPF65zcjTUT9jdVrQ7H1usOuHWxRN2t1XxItszAN5L5tWk9KnXDDOTPrlQM0m4MrmyyUDCcUCC8jGZpl5Hlk0GcmSSUBPCvwI+AJzLsaowyya627wCkV4nvMDsNgN9SV/dUZNzqL2ZmS0Zrh4SzjYVVXACAHnIeIZ5CErSFFWw15G8x4uA9oB4ilvXUKSLp9KzqFSaoQxnaz6p8WbS0WvBvDrgdW1/5QJgq748fW5+i1sXP3x5+rnsLHq0o5eLjExHmy3Y1jN6HWzpHWfvkoS9A6JIfNaLaygXiQX74AFA7ZuvFWwDDaumaD7b5adfBhT0VQXETZKE8woXgAR8dOLaXd697luHMwdr5lATUBK90id5hGrJCZkZCThbOGZrZg6Wdx1Qsjs/0KZX47FE49FHzs0SB2vK+govSIibJGAXLHpxqUc9x1NZt4++kVDT7G1NHGWcmwW706n47jyHmpwApF6zNTNzUV89ZgZzB2AmzeAdsJBwRsl98I+3vkUH+9By0QEJOrx73e+gUTog0kM4IF5Xev1dDlZORVM0wJpJyeQC8EjRXkdf9vXjwQq1N2QGGf70WlFfQenheOk21wJy0pENcEY8lfQVRQRLzICsg8UseY3PerAl80r+/2Pyw+g3lQvo8au7xDgAAAAASUVORK5CYII=" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/lb-06-release-to-revenue-cover.jpg?v=1786289516" alt="From Release to Revenue" loading="lazy">
+  <div class="body">
+    <div class="t">From Release to Revenue</div>
+    <div class="row"><span class="p">$12.99</span><span class="pts">130 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACW0lEQVR4nO2YQY7bMAxFn+IC8k5zA+UkdnusAQzYgQv0WtL0IsoNmJ0CePy7cFB0M92NAhTlTtCCxCf5yU8nPrD76aMf+Fe/UAJ8Cio+QayELQLE2jZCJwm4jNXZXHpnXfHS1hqNbEQvg+qMCGGJPjG1RgOAt7DRK64Fbmv5XF9/+RroCsNtuSrb+7l9GChL8rKuVGedlJjlpa11UuSc443XMSRez72z9/PduS+t0ZAkZSPWgSky6mFN0UDZusIQVCrMRbJZfg9L26SgnSnWgQncEdAWtYe1NRqJTj7bFOsQpDpqg9HmtmGcINzPt/Gly72zy9lf3Kqql0/y9aEpG3hZJ+1B8on5MV0aJyWsRSlssRJWKQEQmvPGcNti7wzCzrvrByZ8vvrSOCk7UIcg+WxdUZZKda1ZlIO9U9ioziZ8ClId6Fo3rLSWOoS1+BQ2jkHfnL5OZHc/92/A/dt1OTYP3HVpP1M26sCEdmYdZUF7FtWxc61FCaijQfsSPaG45jra490TtujfX360bdgTP43YA/TO5kO13L/Z1FwghIVKkHDWSTtTfAaZZyP6rC3W4VjK54Kz5ryxM8U6ai1KYS1+56ESWocRVBgNKsfmMRef26ORtVBhwmc7aCRKao6GbJbPNquO1pVKWIBnzBRJKWwwMEVgisrWXDxm51zvrv4AwksL/Wf5+tgO1ZaYVWFWHbVE5dY65QQ3d2YAeuDq0227uvHlcn6GlP5pwMBlvH/l+9Ezz7hvpKCiFFQAHivY8xQ9keF3lbTeRR+3L+3MR7EqtR5t7v9B8g/7BZJCvVIWjlcQAAAAAElFTkSuQmCC" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div><div class="card">
+  <img class="ph" src="https://cdn.shopify.com/s/files/1/0746/8630/0271/files/lb-09-solo-operators-system-cover.jpg?v=1786289530" alt="The Solo Operator&#x27;s System" loading="lazy">
+  <div class="body">
+    <div class="t">The Solo Operator&#x27;s System</div>
+    <div class="row"><span class="p">$12.99</span><span class="pts">130 ☥</span></div>
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNAQAAAAAzx8nEAAACYklEQVR4nO2YQYojORBFX3Qa5J08J5BhDjAn6My6VkNWO+k0zLVS7ovIB2hQ7mSQ88/CRfdsunYlwzCxEsQiPhFf/4dk4jdx+/S7DPx3U9HM9qx25LJO7FknzMyOTWHsMMH+0gs+//HjyOWv+9EV7n82hYFiJriYwUkVSTW4hTGUJ8xLB8JqByAezh9c653UkMEvnMPtK+MTYKAoyW0AJiWnPAYn1dZDkZnxPY/BLevrwAW4me1ad0OStPhZj75EvUXTbrwNZfE1uI1ObqNLbqNrD2NW6QEpdyo9nRRzcxgbXXJRE075lKRMKEBbiiJleNS1PAYXcye3+eY35cIp7U0TbvE71hf/ery9fFCtd1I6nENhrdwGm+DzAQr8ndqr6NXfw+6KqeK+rXPkwr2tw37C8pehfL9W6DmzN70e6dfaXL7yiIsZtPkawE9gubHDosUrafM1aAMYNFH69vK1+Vku5hF6OhXoEtba2tDiK6X3SmXQrGJ5hL61bjwY4RZO6dfJLZzaizlBUUpleKanSBJ4pWKqQTED+Kn9Lnq+alvtSE+X9nAS0LVVUbQw4mI+JUwSg2pwT1l7atDmayiWofR+Vun9E2DMCcsnFXxFG1CacwNFVR5XY8hjcMonaXnGEjj91I3pTdGf4CmSpCgl7GEnY1BsT9EFcJufVSx3qQyqwUU11w2Tfn61fBn8t3VH+aha76VWO2LXm7l72IEOXO1lnVvLV8wEtzEGerpUBim5rf0D4Q0GActjcIuvQWrPDbwS0CXwLhW7ThAPY+tddAFczF1SzIRiqk9Ye+z/D8l/xT/Kb8E8uqiH4AAAAABJRU5ErkJggg==" alt="Scan to buy">
+    <div class="scan">Scan to buy</div>
+  </div>
+</div></div>
+</section>
+
+<div class="pay">
+  <h2>Direct Payment</h2>
+  <div class="sub" style="margin:6px 0 0">For in-person and community sales</div>
+  <div class="paygrid">
+    <div class="paybox"><div class="nm">Cash App</div>
+      <div class="slot">QR pending — send your $cashtag</div>
+      <div class="hint">cash.app/$yourcashtag</div></div>
+    <div class="paybox"><div class="nm">Venmo</div>
+      <div class="slot">QR pending — send your @username</div>
+      <div class="hint">venmo.com/u/yourusername</div></div>
+    <div class="paybox"><div class="nm">Zelle</div>
+      <div class="slot" style="border-style:solid;color:#E4C173;font-size:15px;font-family:Georgia,serif">
+        267-633-5716</div>
+      <div class="hint">Send via your bank app to this number</div></div>
+  </div>
+</div>
+
+<div class="mission">
+  <h2>Mission 20K</h2>
+  <div class="sub" style="margin:6px 0 0 0">Twenty thousand people in Philadelphia with their credit, their capital and their paperwork in order.</div>
+  <div class="bonus">
+    <div class="amt">$10,000</div>
+    <div class="lb">Field Operator performance bonus — paid on verified sales volume, not on recruiting</div>
+  </div>
+  <div class="ladder">
+    <div class="rung"><div class="r">OPERATOR</div><div class="d">Learn the system. Earn on every sale you close.</div></div>
+    <div class="rung"><div class="r">FIELD LEAD</div><div class="d">Consistent sales volume. Higher commission tier.</div></div>
+    <div class="rung"><div class="r">MENTOR</div><div class="d">Train new operators while still selling.</div></div>
+    <div class="rung"><div class="r">REGIONAL</div><div class="d">Own a Philadelphia territory.</div></div>
+  </div>
+  <div class="note" style="margin-top:20px">
+    <b style="color:#29A99E">How you earn:</b> commission is paid on products and services sold to real customers.
+    Nothing is earned for signing someone up, there is no fee to join, and no inventory purchase is required.
+    Income depends entirely on what you sell. No earnings are guaranteed.
+  </div>
+</div>
+
+<div class="note">
+  <b style="color:#C9A24B">Straight talk.</b> You have the right to dispute inaccurate items on your credit report
+  yourself, for free, without paying anyone — and we will show you how. Credit work is billed after it is done,
+  never up front, and no score change or deletion is ever guaranteed. Funding decisions belong to the funders;
+  no approval or amount is promised. Course materials promise no job, no release and no specific outcome.
+  $ANKH points shown are in-platform rewards, not currency and not an investment.
+  <br><br>
+  In crisis? Call or text <b style="color:#C9A24B">988</b>. For housing, food or treatment support, dial <b style="color:#C9A24B">211</b>.
+</div>
+
+<div class="foot">
+  <b>HANNIBAL MANSA PHALANX · THE LEGACY BLUEPRINT</b><br>
+  Damon Taylor · Philadelphia, PA<br>
+  267-633-5716 · taylormadesalescorp@gmail.com<br>
+  hannibalmansaphalanx.myshopify.com
+</div>
+</div></body></html>
