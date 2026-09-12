@@ -71,6 +71,17 @@ function plinth() {
   var body = new THREE.Mesh(new THREE.BoxGeometry(1.5, 1.05, 1.0), matStone(0x0E141D));
   body.position.y = 0.52; body.castShadow = true; body.receiveShadow = true; g.add(body);
 
+  /* Lapis inlay panel on the face, banded by two gold fillets — the same
+     stone-and-metal treatment the reference uses on the nemes and wesekh.
+     Lapis is matte and non-emissive: it is a physical surface, so under the
+     palette law it may be LIT by the cyan console above it but never glow. */
+  var inlay = new THREE.Mesh(new THREE.BoxGeometry(1.02, 0.46, 0.02), matLapis());
+  inlay.position.set(0, 0.6, 0.51); g.add(inlay);
+  [0.85, 0.35].forEach(function (y) {
+    var fillet = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.045, 0.03), matGold(0.28));
+    fillet.position.set(0, y, 0.515); g.add(fillet);
+  });
+
   /* slanted console top, angled toward the user like a lectern */
   var top = new THREE.Mesh(new THREE.BoxGeometry(1.55, 0.07, 1.05), matStone(0x151C27));
   top.position.set(0, 1.1, -0.06); top.rotation.x = -0.22; g.add(top);
@@ -93,8 +104,13 @@ function plinth() {
   var rim = new THREE.Mesh(new THREE.BoxGeometry(1.62, 0.06, 1.12), matGold(0.3));
   rim.position.y = 0.04; g.add(rim);
 
-  g.add(new THREE.PointLight(CYAN, 0.85, 3.2));
-  g.children[g.children.length - 1].position.set(0, 1.35, 0);
+  /* NO per-plinth PointLight. Eight of them pushed this tier to 19 dynamic
+     lights, which is the single most likely cause of frame-rate collapse on a
+     phone — well ahead of object count. The console reads as lit anyway: the
+     screen plane and its rings are AdditiveBlending MeshBasicMaterial, which
+     is unlit by definition and glows without costing a light slot. If a real
+     pool of light on the floor is wanted later, add ONE shared light at the
+     ring centre, not one per station. */
   return g;
 }
 
@@ -268,9 +284,18 @@ function buildChamber(opts) {
 
   /* lighting — warm gold key raking from high, cool cyan fill opposite.
      This two-source split is the single biggest reason a render reads as
-     photographed rather than flat. Ambient stays near-black so blacks crush. */
+     photographed rather than flat. Ambient stays near-black so blacks crush.
+
+     Light budget: this adds exactly 3 dynamic lights (key, fill, table core).
+     An earlier revision added 11 by giving every plinth its own PointLight,
+     which on tier 4 — already running 8 — meant 19 live lights plus a new
+     shadow caster. Each additional light multiplies per-fragment cost on
+     mobile GPUs, so that was the real frame-rate risk, not the object count. */
   var key = new THREE.DirectionalLight(GOLD_L, 0.95);
-  key.position.set(14, 26, 10); key.castShadow = true; g.add(key);
+  key.position.set(14, 26, 10);
+  /* Shadow maps are the other expensive thing here. Desktop only. */
+  key.castShadow = !mobile;
+  g.add(key);
   var fill = new THREE.DirectionalLight(CYAN, 0.4);
   fill.position.set(-16, 9, -12); g.add(fill);
 
