@@ -77,6 +77,7 @@ html,body{height:100%;overflow:hidden;background:#050810;font-family:Georgia,ser
 <div class="foot">HANNIBAL MANSA PHALANX · THE LEGACY BLUEPRINT · 267-633-5716</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="chamber.js"></script>
 <script>
 var SB='https://bazwnitzxtbvztqnmdfs.supabase.co';
 var KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJhenduaXR6eHRidnp0cW5tZGZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3NzEzMjEsImV4cCI6MjEwMjM0NzMyMX0.-M8Zo5lIGbPL83dT25ifoAoL25ebzTeKbgRiwgCpKRY';
@@ -254,6 +255,10 @@ function ground(i){
 }
 
 var worlds=[];
+/* Command chamber lives on exactly one tier. 4 = Sovereign Apex, whose
+   DESIGN.md brief (ownership, glass, altitude) matches the reference frame's
+   octagonal observation deck. -1 disables it. */
+var CHAMBER_TIER=4, chamber=null;
 function build(i){
   var w=new THREE.Group();w.add(ground(i));
   w.add(starField(TIERS[i].stars, 200, TIERS[i].tint));
@@ -323,6 +328,12 @@ function build(i){
       sp.position.set(p[0],hh2/2,p[1]);sp.castShadow=true;w.add(sp);
       var cl=new THREE.PointLight(k%3===1?0x29A99E:0xECE7DA,2.2,9);cl.position.set(p[0],hh2,p[1]);w.add(cl)});
     var d2=new THREE.Mesh(new THREE.CircleGeometry(6,48),glyphMat);d2.rotation.x=-Math.PI/2;d2.position.y=.04;w.add(d2);
+  }
+  /* Command chamber (chamber.js) — one tier only. Change CHAMBER_TIER to move
+     it; set to -1 to disable without removing the wiring. */
+  if(i===CHAMBER_TIER&&typeof buildChamber==='function'){
+    chamber=buildChamber({mobile:innerWidth<768});
+    w.add(chamber);
   }
   w.visible=false;scene.add(w);return w;
 }
@@ -588,6 +599,10 @@ function loop(){
     me.position.y+D*Math.sin(pitch)+1.4,
     me.position.z+D*Math.cos(yaw)*Math.cos(pitch)),.12);
   cam.lookAt(me.position.x,me.position.y+1.25,me.position.z);
+
+  /* Chamber console rings + holo node-graph. Only costs anything on the tier
+     the chamber is actually on; animateChamber() no-ops on a null chamber. */
+  if(chamber&&tier===CHAMBER_TIER&&typeof animateChamber==='function')animateChamber(chamber,T);
 
   var dOr=me.position.distanceTo(oracle.position);
   var nowNear=dOr<4.6;
