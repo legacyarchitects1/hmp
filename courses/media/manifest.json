@@ -1,0 +1,8 @@
+[
+ {"id":"kemet-nut","image":"images/kemet-nut.webp","audio":["https://bazwnitzxtbvztqnmdfs.supabase.co/storage/v1/object/public/web/tts/1874e25545441bb041781472.mp3"]},
+ {"id":"kemet-setuk","image":"images/kemet-setuk.webp","audio":["https://bazwnitzxtbvztqnmdfs.supabase.co/storage/v1/object/public/web/tts/f268ffe9d68f5b2009ae2106.mp3"]},
+ {"id":"kemet-nebthet","image":"images/kemet-nebthet.webp","audio":["https://bazwnitzxtbvztqnmdfs.supabase.co/storage/v1/object/public/web/tts/0312a8ab7706a8639dadcff5.mp3"]},
+ {"id":"sabaic-almaqah","image":"images/sabaic-almaqah.jpg","audio":["https://bazwnitzxtbvztqnmdfs.supabase.co/storage/v1/object/public/web/tts/4ec163a12f5995a722dc6da2.mp3"]},
+ {"id":"sabaic-attar","image":"images/sabaic-attar.jpg","audio":["https://bazwnitzxtbvztqnmdfs.supabase.co/storage/v1/object/public/web/tts/fff41a682c3b20cbfc0a7ad7.mp3"]},
+ {"id":"sabaic-sayin","image":"images/sabaic-sayin.jpg","audio":["https://bazwnitzxtbvztqnmdfs.supabase.co/storage/v1/object/public/web/tts/7a062fc91b30a3f375dc3354.mp3"]}
+]
