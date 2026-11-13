@@ -1,6 +1,12 @@
 name: build-deity-videos
 on:
   workflow_dispatch:
+  push:
+    branches: [deity-course-media]
+    paths:
+      - courses/media/manifest.json
+      - courses/media/build_videos.py
+      - .github/workflows/build-deity-videos.yml
 permissions:
   contents: write
 jobs:
